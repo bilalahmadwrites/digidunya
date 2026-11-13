@@ -1,0 +1,768 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Bilal Ahmad — Article writer, thesis & dissertation research support specialist, video editor, thumbnail designer & web developer. SEO blogs, thesis support (proposal help, literature reviews, methodology support, editing, APA referencing & formatting — 100% original, plagiarism-checked, copyright-free), YouTube Shorts/Reels editing, click-worthy thumbnails and fast, mobile-first websites built to rank. Small starter orders from $7 — standard delivery 48–72 hours, original work checked before delivery.">
+<link rel="icon" href="data:,">
+<title>Bilal Ahmad — Writing, Thesis Support, Video Editing, Thumbnails & Web Development</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Public+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFBF2; --bg2:#FFF6E6; --surface:#FFFFFF; --surface2:#F7F1E3;
+  --ink:#17202A; --muted:#5B6572; --line:#E9DDC3;
+  --teal:#0F766E; --teal-dark:#0B4F4A; --amber:#D97706; --amber-light:#FEF3C7;
+  --gold:#B45309; --radius:18px;
+  --shadow:0 18px 40px rgba(23,32,42,.08);
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#0E1513; --bg2:#12201D; --surface:#16211F; --surface2:#1B2A27; --ink:#F3EDE0; --muted:#A8B3AE; --line:#2A3A36; --teal:#2DD4BF; --teal-dark:#99F6E4; --amber:#F59E0B; --amber-light:#2A2110; --shadow:0 18px 40px rgba(0,0,0,.35); }
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:"Public Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+a{color:inherit;text-decoration:none} img{max-width:100%}
+.wrap{width:min(1180px,92%);margin:0 auto}
+.topbar{position:sticky;top:0;z-index:50;background:color-mix(in srgb, var(--bg) 92%, transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:-.02em}
+.avatar{width:44px;height:44px;border-radius:12px;background:var(--teal-dark);color:#FFF7E6;display:grid;place-items:center;font-family:"Fraunces",serif;font-weight:900;font-size:18px}
+.brand small{display:block;font-weight:600;color:var(--muted);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.navlinks{display:flex;gap:22px;font-size:14.5px;font-weight:600;color:var(--muted)}
+.navlinks a:hover{color:var(--teal)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:700;font-size:15px;border:1px solid transparent;cursor:pointer;transition:.2s}
+.btn-primary{background:var(--teal);color:white} .btn-primary:hover{background:var(--teal-dark)}
+.btn-outline{background:transparent;border-color:var(--line);color:var(--ink)} .btn-outline:hover{border-color:var(--teal);color:var(--teal)}
+.btn-amber{background:var(--amber);color:white}
+@media(max-width:760px){.navlinks{display:none}}
+
+.hero{padding:56px 0 28px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:start}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
+.pill{display:inline-flex;align-items:center;gap:8px;background:var(--amber-light);border:1px solid var(--line);padding:7px 12px;border-radius:999px;font-size:13px;font-weight:700;color:var(--gold)}
+.dot{width:8px;height:8px;border-radius:50%;background:#16A34A;box-shadow:0 0 0 4px rgba(22,163,74,.18)}
+h1{font-family:"Fraunces",serif;font-size:clamp(42px,6vw,72px);line-height:.95;letter-spacing:-.03em;margin:18px 0 16px;font-weight:900}
+h1 em{font-style:normal;color:var(--teal);text-decoration:underline;text-decoration-color:var(--amber);text-decoration-thickness:5px;text-underline-offset:6px}
+.lead{font-size:19px;color:var(--muted);max-width:620px;line-height:1.65}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0 18px}
+.trustrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.trustrow span{font-size:13.5px;font-weight:600;background:var(--surface);border:1px solid var(--line);padding:8px 11px;border-radius:999px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.profile-card{padding:26px}
+.profile-top{display:flex;gap:16px;align-items:center}
+.profile-top .avatar{width:64px;height:64px;font-size:24px;border-radius:16px}
+.profile-card h3{margin:0;font-size:20px} .profile-card p{color:var(--muted);font-size:14.5px;margin:4px 0 0}
+.mini-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+.mini-stats div{background:var(--surface2);border-radius:12px;padding:14px}
+.mini-stats b{font-size:20px;display:block;line-height:1} .mini-stats span{font-size:12.5px;color:var(--muted);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.checklist{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:10px;font-size:14.5px}
+.checklist li{display:flex;gap:10px} .check{color:var(--teal);font-weight:900}
+.platforms{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.platforms span{font-family:"JetBrains Mono",monospace;font-size:12px;border:1px dashed var(--line);padding:7px 9px;border-radius:8px;color:var(--muted)}
+
+.statsbar{margin:28px 0 8px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:700px){.statsbar{grid-template-columns:1fr 1fr}}
+.stat{padding:18px;border-radius:16px;background:var(--ink);color:var(--bg);text-align:left}
+.stat b{font-family:"Fraunces",serif;font-size:28px;display:block;line-height:1} .stat span{font-size:13px;opacity:.85}
+
+section{padding:52px 0}
+.sec-head{max-width:720px;margin-bottom:26px}
+.sec-label{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);font-weight:700}
+.sec-head h2{font-family:"Fraunces",serif;font-size:clamp(30px,4vw,44px);line-height:1.05;letter-spacing:-.02em;margin:10px 0 10px}
+.sec-head p{color:var(--muted);font-size:17px;margin:0}
+
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px} .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:900px){.grid3{grid-template-columns:1fr 1fr}} @media(max-width:600px){.grid3,.grid2{grid-template-columns:1fr}}
+.why-card,.service-card{padding:22px}
+.icon{width:46px;height:46px;border-radius:12px;background:var(--amber-light);display:grid;place-items:center;font-size:22px;margin-bottom:14px}
+.why-card h3,.service-card h3{margin:0 0 8px;font-size:18px} .why-card p,.service-card p{margin:0;color:var(--muted);font-size:15px}
+.service-card{position:relative} .service-card .price{margin-top:14px;font-weight:800;color:var(--teal);font-size:14px}
+.service-card ul{margin:10px 0 0;padding-left:18px;color:var(--muted);font-size:14.5px}
+
+.niches{display:flex;flex-wrap:wrap;gap:10px}
+.chip{padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-weight:700;font-size:14px}
+.chip.hot{background:var(--teal);color:white;border-color:var(--teal)}
+
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.filter-btn{padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-weight:700;cursor:pointer}
+.filter-btn.active{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.sample{padding:22px;display:flex;flex-direction:column;gap:10px}
+.sample .meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--teal)}
+.sample h3{margin:0;font-size:19px;line-height:1.3} .sample p{margin:0;color:var(--muted);font-size:15px;flex:1}
+.sample footer{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:12px;font-size:13px;color:var(--muted);font-weight:600}
+
+.project{padding:22px;display:flex;flex-direction:column;gap:10px}
+.project .meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--teal)}
+.project h3{margin:0;font-size:19px;line-height:1.3}
+.project p{margin:0;color:var(--muted);font-size:15px}
+.project ul{list-style:none;padding:0;margin:4px 0 0;display:grid;gap:7px;font-size:14.5px;color:var(--muted)}
+.project ul li{display:flex;gap:9px} .project ul .check{color:var(--teal);font-weight:900}
+.project footer{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:14px}
+.project .p-price{font-weight:800;color:var(--teal);font-size:15px}
+.project footer a{font-weight:800;font-size:14px;color:var(--amber)}
+
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+@media(max-width:900px){.steps{grid-template-columns:1fr 1fr}} @media(max-width:520px){.steps{grid-template-columns:1fr}}
+.step{padding:20px} .step-num{width:36px;height:36px;border-radius:50%;background:var(--teal);color:white;display:grid;place-items:center;font-weight:800;margin-bottom:12px}
+.step h4{margin:0 0 6px} .step p{margin:0;color:var(--muted);font-size:14.5px}
+
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch}
+@media(max-width:900px){.pricing{grid-template-columns:1fr}}
+.price-card{padding:26px;display:flex;flex-direction:column}
+.price-card.featured{border:2px solid var(--teal);position:relative}
+.badge{position:absolute;top:-12px;left:20px;background:var(--amber);color:white;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:6px 10px;border-radius:999px}
+.price-card h3{margin:0} .amount{font-family:"Fraunces",serif;font-size:42px;line-height:1;margin:12px 0 4px} .amount span{font-size:16px;font-family:"Public Sans",sans-serif;color:var(--muted)}
+.price-card ul{list-style:none;padding:0;margin:16px 0 20px;display:grid;gap:9px;font-size:15px} .price-card li::before{content:"✓ ";color:var(--teal);font-weight:900}
+.calc{margin-top:16px;padding:22px}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px} @media(max-width:700px){.calc-grid{grid-template-columns:1fr}}
+label{font-weight:700;font-size:14px;display:block;margin-bottom:8px}
+select,input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit}
+input[type=range]{padding:0}
+.est{font-family:"Fraunces",serif;font-size:36px;line-height:1} .est-note{color:var(--muted);font-size:14px}
+
+.promise{background:var(--teal-dark);color:#ECFDF5;border-radius:24px;padding:32px;display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+@media(max-width:800px){.promise{grid-template-columns:1fr}}
+.promise h2{font-family:"Fraunces",serif;font-size:34px;line-height:1.1;margin:0 0 12px;color:white}
+.promise p{opacity:.9} .promise .checklist li{color:#ECFDF5} .promise .check{color:#FDE68A}
+
+.faq{border:1px solid var(--line);border-radius:16px;background:var(--surface);overflow:hidden}
+.faq-item{border-bottom:1px solid var(--line)} .faq-item:last-child{border-bottom:none}
+.faq-q{width:100%;text-align:left;background:none;border:none;padding:18px 20px;font-weight:700;font-size:16px;cursor:pointer;display:flex;justify-content:space-between;color:var(--ink)}
+.faq-a{padding:0 20px 18px;color:var(--muted);display:none;font-size:15px} .faq-item.open .faq-a{display:block}
+
+.order-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px} @media(max-width:800px){.order-grid{grid-template-columns:1fr}}
+.form-card{padding:24px} .form-card .row{display:grid;grid-template-columns:1fr 1fr;gap:12px} @media(max-width:600px){.form-card .row{grid-template-columns:1fr}}
+.brief-box{background:var(--surface2);border:1px dashed var(--line);border-radius:12px;padding:16px;white-space:pre-wrap;font-size:14.5px;min-height:180px}
+footer{padding:28px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--bg);padding:12px 16px;border-radius:999px;font-weight:700;opacity:0;pointer-events:none;transition:.25s;z-index:99}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+.deals{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:6px 0 4px}
+@media(max-width:1000px){.deals{grid-template-columns:1fr 1fr}}
+@media(max-width:800px){.deals{grid-template-columns:1fr}}
+.deal{padding:20px;border-radius:16px;background:var(--ink);color:var(--bg);position:relative;overflow:hidden}
+.deal .tag{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);font-weight:700}
+.deal h3{margin:8px 0 4px;font-family:"Fraunces",serif;font-size:22px;line-height:1.15;color:inherit}
+.deal p{margin:0;font-size:14px;opacity:.85}
+.deal .deal-price{font-family:"Fraunces",serif;font-size:30px;margin-top:12px;line-height:1}
+.deal .deal-price span{font-size:13px;font-family:"Public Sans",sans-serif;opacity:.8}
+.deal a{color:var(--amber);font-weight:800;font-size:14px;display:inline-block;margin-top:10px}
+.creative-note{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.creative-note span{font-size:13.5px;font-weight:600;background:var(--surface);border:1px solid var(--line);padding:8px 11px;border-radius:999px}
+
+.platforms a{font-family:"JetBrains Mono",monospace;font-size:12px;border:1px dashed var(--line);padding:7px 9px;border-radius:8px;color:var(--teal);font-weight:700}
+.platforms a:hover{border-color:var(--teal)}
+
+.full-article{margin-bottom:16px;overflow:hidden;padding:0}
+.full-article summary{list-style:none;cursor:pointer;padding:24px}
+.full-article summary::-webkit-details-marker{display:none}
+.full-article summary:hover h3{color:var(--teal)}
+.full-article .meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--teal)}
+.full-article summary h3{margin:10px 0 8px;font-family:"Fraunces",serif;font-size:clamp(22px,3vw,30px);line-height:1.2}
+.full-article .fa-sub{margin:0;color:var(--muted);font-size:15px;max-width:780px}
+.fa-toggle{display:inline-block;margin-top:14px;font-weight:800;color:var(--amber);font-size:14.5px}
+details.full-article[open ] .fa-toggle{color:var(--teal)}
+.article-body{padding:6px 24px 26px;border-top:1px solid var(--line)}
+.article-body p{font-size:16px;line-height:1.75;margin:0 0 14px}
+.article-body h4{font-family:"Fraunces",serif;font-size:21px;margin:26px 0 8px}
+.article-body h5{font-size:16.5px;margin:18px 0 6px}
+.article-body ul,.article-body ol{margin:0 0 14px;padding-left:22px;line-height:1.7;font-size:16px}
+.article-body li{margin-bottom:6px}
+.article-body .demo-tag{display:inline-block;background:var(--amber-light);border:1px solid var(--line);color:var(--gold);font-weight:700;font-size:13px;padding:7px 11px;border-radius:999px;margin:14px 0 6px}
+.article-body .abstract{background:var(--surface2);border-radius:12px;padding:16px 18px}
+.article-body .keywords{font-size:14px;color:var(--muted)}
+.refs{font-size:14px;color:var(--muted);list-style:none;padding-left:22px !important}
+.refs li{margin-bottom:9px;padding-left:0;text-indent:-22px}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="wrap nav">
+  <a class="brand" href="#top"><span class="avatar">BA</span><span>Bilal Ahmad<small>Writer • Video Editor • Web Developer</small></span></a>
+  <nav class="navlinks"><a href="#services">Writing</a><a href="#thesis">Thesis Support</a><a href="#offer">SEO Offer</a><a href="#creative">Editing &amp; Thumbnails</a><a href="#webdev">Web Development</a><a href="#deals">Starter Deals</a><a href="#samples">Samples</a><a href="#full-articles">Full Thesis Sample</a><a href="#projects">Projects</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></nav>
+  <a class="btn btn-primary" href="#order">Hire Me →</a>
+</div></header>
+
+<main id="top" class="wrap">
+  <!-- HERO -->
+  <div class="hero"><div class="hero-grid">
+    <div>
+      <span class="pill"><span class="dot"></span> Available for new orders today — replies within a few hours</span>
+      <h1>Words, videos &amp; websites that <em>pull people in.</em></h1>
+      <p class="lead">I'm <strong style="color:var(--ink)">Bilal Ahmad</strong> — a writer, video editor and web developer for businesses, students and creators (MSc Zoology, B.Ed). I write SEO articles that rank and read well; I provide professional <strong style="color:var(--ink)">thesis &amp; dissertation research support</strong> — proposal guidance, literature reviews, methodology support, chapter-by-chapter editing, APA referencing and full formatting, all 100% original, plagiarism-checked and copyright-free — and I cut Shorts, Reels and YouTube videos with thumbnails designed to get the click, plus fast, mobile-first websites ready to rank from day one. New client? Start with a small starter order and judge the work yourself — a complete demo thesis is published in full below.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#order">Start Your Order</a>
+        <a class="btn btn-amber" href="#deals">See Starter Deals — from $7</a>
+        <a class="btn btn-outline" href="#samples">Read Writing Samples ↓</a>
+      </div>
+      <div class="trustrow"><span>✓ Original Work — Checked Before Delivery</span><span>✓ Small Test Orders Welcome</span><span>✓ Plagiarism-Checked — Full Report on Professional &amp; Premium</span><span>✓ 2 Free Revisions</span><span>✓ Standard Delivery 48–72 Hours</span><span>✓ Live Websites Built &amp; Maintained — Links on Request</span></div>
+      <div class="statsbar">
+        <div class="stat"><b>48–72h</b><span>Standard delivery per 1,000 words — every writing tier</span></div>
+        <div class="stat"><b>12+</b><span>Niches &amp; academic subjects covered</span></div>
+        <div class="stat"><b>Human-written</b><span>Drafted by me — outline &amp; draft available on request</span></div>
+        <div class="stat"><b>2</b><span>Free revisions on every order</span></div>
+      </div>
+      <p style="color:var(--muted);font-size:14px;margin:14px 0 0">Judge everything on this page by proof, not promises — ask and I'll send my current live website links and a sample plagiarism report before you order, and the complete sample articles are published in full below.</p>
+    </div>
+    <aside class="card profile-card">
+      <div class="profile-top"><span class="avatar">BA</span><div><h3>Bilal Ahmad</h3><p>Article Writer • Video Editor • Thumbnail Designer • Web Developer<br>Pakistan — working worldwide (US / UK / EU / AU clients welcome)</p></div></div>
+      <div class="mini-stats"><div><b>English</b><span>Writing language</span></div><div><b>DOCX · MP4 · PNG</b><span>Delivery formats</span></div><div><b>APA · MLA +</b><span>Harvard · Chicago too</span></div><div><b>Global</b><span>Remote delivery</span></div></div>
+      <p style="font-size:15px;color:var(--muted);margin:0"><strong style="color:var(--ink)">New on marketplaces, serious about the craft.</strong> I don't sell fake reviews or inflated numbers. I sell work you can judge first — samples you can read, and small starter orders so your first test costs less than lunch. Happy clients come back; that's the whole strategy.</p>
+      <ul class="checklist"><li><span class="check">✓</span> Research before writing — sources checked, not copied</li><li><span class="check">✓</span> Thesis &amp; dissertation support: proposal, literature review, methodology, editing &amp; APA formatting</li><li><span class="check">✓</span> Edits built for retention: strong 3-second hook, tight pacing</li><li><span class="check">✓</span> Thumbnails designed for clicks: bold text, clear emotion, mobile-readable</li><li><span class="check">✓</span> Websites built fast &amp; mobile-first — made to rank, not just to look nice</li><li><span class="check">✓</span> Honest deadlines — if I can't do it well, I won't take it</li></ul>
+      <div class="platforms"><span>Find me on:</span><a href="https://www.freelancer.com/u/bilalahmadwrites" target="_blank" rel="noopener">Freelancer.com — @bilalahmadwrites</a><a href="https://www.fiverr.com/bilalahmadwrite" target="_blank" rel="noopener">Fiverr</a><a href="https://www.upwork.com/freelancers/~01aadc1c0f72ece380" target="_blank" rel="noopener">Upwork</a></div>
+      <a class="btn btn-primary" style="width:100%;margin-top:18px" href="#order">Send Me Your Topic →</a>
+    </aside>
+  </div></div>
+
+  <!-- STARTER DEALS -->
+  <section id="deals" style="padding:26px 0 6px">
+    <div class="sec-head" style="margin-bottom:18px"><div class="sec-label">Start small — order today</div><h2>First order? Test me for the price of a coffee.</h2><p>Small, low-risk starter jobs — built so you can judge real delivered work before spending on anything bigger. One delivery rule applies everywhere on this page: a single thumbnail in 24 hours; a single Short edit or the 500-word test article in 48 hours; a 1-page website and every standard 1,000-word writing package in 48–72 hours. Whichever deadline is confirmed in your brief is the one I work to.</p></div>
+    <div class="deals">
+      <div class="deal"><div class="tag">Thumbnail • 24h</div><h3>1 YouTube Thumbnail</h3><p>Bold, mobile-readable design with 2 text variations — made to win the click next to your competitors.</p><div class="deal-price">$7 <span>one thumbnail</span></div><a href="#order" data-svc="Thumbnail Design">Order this deal →</a></div>
+      <div class="deal"><div class="tag">Video Edit • 48h</div><h3>1 Short / Reel / TikTok Edit</h3><p>Hook-first cut, captions burned in, music &amp; SFX synced, paced to hold viewers to the end.</p><div class="deal-price">$12 <span>one short-form video</span></div><a href="#order" data-svc="Video Editing — Short / Reel / TikTok">Order this deal →</a></div>
+      <div class="deal"><div class="tag">Writing • 48h</div><h3>500-Word Test Article</h3><p>A real, publishable mini-article on your topic — cleanly structured, original, plagiarism-checked. This is a one-off test piece, separate from the per-1,000-word packages in Pricing below.</p><div class="deal-price">$15 <span>500 words</span></div><a href="#order" data-svc="Blog Article">Order this deal →</a></div>
+      <div class="deal"><div class="tag">Web • 48–72h</div><h3>1-Page Website</h3><p>A fast, mobile-first landing page for your business, offer or event — copy written for you, ready to share.</p><div class="deal-price">$45 <span>one page, live fast</span></div><a href="#order" data-svc="Web Development — Landing Page">Order this deal →</a></div>
+    </div>
+  </section>
+
+  <!-- FOCUSED OFFER -->
+  <section id="offer" style="padding:34px 0 6px">
+    <div class="sec-head"><div class="sec-label">The focused offer</div><h2>Article &amp; SEO writing — one clear offer, done properly</h2><p>This is the exact service I bid on across Freelancer, Fiverr and Upwork — so whether you found me on a marketplace or landed here first, the offer, the samples and the price are the same. Read the complete articles below, then hire me back on the marketplace, where your payment stays escrow-protected.</p></div>
+    <div class="card" style="padding:26px">
+      <div class="grid2" style="gap:24px">
+        <div>
+          <h3 style="margin:0 0 10px;font-family:Fraunces,serif;font-size:24px">What you get in every article</h3>
+          <ul class="checklist">
+            <li><span class="check">✓</span> Researched around your keyword &amp; search intent — never stuffed</li>
+            <li><span class="check">✓</span> Hook intro, clear headings, scannable structure, a real conclusion</li>
+            <li><span class="check">✓</span> Meta title &amp; description written for you</li>
+            <li><span class="check">✓</span> Plagiarism-checked before delivery — a full report file is included on this Professional tier (sample report available on request)</li>
+            <li><span class="check">✓</span> Written by me in your tone · 2 free revisions</li>
+          </ul>
+          <div class="platforms" style="margin-top:18px"><span>Same offer on:</span><a href="https://www.freelancer.com/u/bilalahmadwrites" target="_blank" rel="noopener">Freelancer.com</a><a href="https://www.fiverr.com/bilalahmadwrite" target="_blank" rel="noopener">Fiverr</a><a href="https://www.upwork.com/freelancers/~01aadc1c0f72ece380" target="_blank" rel="noopener">Upwork</a></div>
+        </div>
+        <div style="background:var(--surface2);border-radius:14px;padding:22px">
+          <div style="font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)">Professional tier — SEO article writing</div>
+          <div class="amount">$55 <span>/ 1,000 words</span></div>
+          <p style="color:var(--muted);font-size:14.5px;margin:6px 0 0"><strong style="color:var(--ink)">Why $55 and not the $30 Starter?</strong> Starter ($30) is a standard blog article with light research (3–5 sources), clean headings and a plagiarism check. This Professional tier adds deep research (8+ sources), keyword placement around your search intent, a meta title &amp; description, formal citations where needed, and the full plagiarism report file. <strong style="color:var(--ink)">Delivery is 48–72 hours per 1,000 words — the same standard quoted in Pricing and the FAQ.</strong> New client? Start with the <strong style="color:var(--ink)">$15 test article (500 words, 48 hours)</strong> and judge the finished work first.</p>
+          <a class="btn btn-primary" style="width:100%;margin-top:16px" href="https://www.freelancer.com/u/bilalahmadwrites" target="_blank" rel="noopener">Hire Me on Freelancer.com →</a>
+          <a class="btn btn-outline" style="width:100%;margin-top:10px" href="#order">Or build your brief first ↓</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY HIRE ME -->
+  <section id="why">
+    <div class="sec-head"><div class="sec-label">Why hire me</div><h2>Why clients choose a writer — not just words</h2><p>Anyone can fill a page. What you pay for is research, structure, originality and reliability. That's exactly what I deliver on every order, large or small.</p></div>
+    <div class="grid3">
+      <div class="card why-card"><div class="icon">🔍</div><h3>Research-Backed, Not Rewritten</h3><p>Every article starts with real research — reputable sources, current facts, and competitor gaps. No spun content, no copy-paste, no made-up statistics.</p></div>
+      <div class="card why-card"><div class="icon">🛡️</div><h3>Originality You Can Check</h3><p>Written from scratch and plagiarism-checked before delivery. Starter orders include the check; Professional and Premium orders include the full report file — and a sample report is available on request before you order, along with the source links for the piece.</p></div>
+      <div class="card why-card"><div class="icon">📈</div><h3>Built to Rank &amp; Be Read</h3><p>Search intent first, keywords second. Clear headings, scannable paragraphs, strong hooks and conclusions that keep readers — and Google — happy.</p></div>
+      <div class="card why-card"><div class="icon">✍️</div><h3>Human Voice, Your Tone</h3><p>Formal academic, friendly blog, or sharp sales copy — I match your brand or project brief. No robotic, generic AI-style filler.</p></div>
+      <div class="card why-card"><div class="icon">⏱️</div><h3>Deadlines Treated Seriously</h3><p>Clear delivery time agreed before we start, progress update if anything changes, and early delivery whenever possible.</p></div>
+      <div class="card why-card"><div class="icon">💬</div><h3>Easy to Work With</h3><p>Fast replies, simple brief process, and 2 free revisions. You always know what's happening with your order — no chasing, no silence.</p></div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="sec-head"><div class="sec-label">Services</div><h2>Everything you need, written properly</h2><p>One writer for your whole content pipeline — from a single blog post to full research support for your own academic work.</p></div>
+    <div class="grid3">
+      <div class="card service-card"><div class="icon">📰</div><h3>Blog Articles — Starter Tier</h3><p>Engaging, informative posts that build traffic and trust — the simpler, lower-cost tier.</p><ul><li>Listicles, how-tos, guides &amp; opinion pieces</li><li>Hook + intro + conclusion that converts</li><li>Light research (3–5 sources) &amp; clean headings</li><li>Plagiarism check included — no keyword mapping, meta or formal citations at this tier</li></ul><div class="price">Starter — $30 / 1,000 words • 48–72h</div></div>
+      <div class="card service-card"><div class="icon">🎯</div><h3>SEO Articles — Professional Tier</h3><p>Everything in Starter, plus the research and optimisation layer — written for search intent, structured to rank.</p><ul><li>Deep research (8+ credible sources)</li><li>Keyword placement without stuffing</li><li>Meta title &amp; description included</li><li>Full plagiarism report file included</li></ul><div class="price">Professional — $55 / 1,000 words • 48–72h</div></div>
+      <div class="card service-card"><div class="icon">🎓</div><h3>Research Support — Literature Reviews &amp; Editing</h3><p>Ethical help with your own research — I support the work, you stay the author.</p><ul><li>Literature review help &amp; source research</li><li>Editing, referencing (APA, MLA, Harvard, Chicago) &amp; formatting</li><li>Not a write-your-assignment service — see the note below</li></ul><div class="price">Professional tier — $55 / 1,000 words • 48–72h</div></div>
+      <div class="card service-card"><div class="icon">📚</div><h3>Thesis &amp; Dissertation Research Support</h3><p>Professional support for your own thesis — chapter by chapter, 100% original, plagiarism-checked and copyright-free.</p><ul><li>Topic refinement, proposal &amp; chapter outline</li><li>Literature review drafting support &amp; source research</li><li>Methodology chapter support &amp; results/discussion editing</li><li>APA / MLA / Harvard referencing &amp; full university formatting</li><li>Plagiarism report included on Professional &amp; Premium</li></ul><div class="price">From $55 / 1,000 words • Full thesis quoted by length — see Thesis section ↓</div></div>
+      <div class="card service-card"><div class="icon">📝</div><h3>Essay Editing &amp; Feedback</h3><p>Your draft, sharpened — structure, argument and clarity, with the writing still yours.</p><ul><li>Detailed feedback on thesis, flow &amp; evidence</li><li>Full editing &amp; proofreading of your own essay</li></ul><div class="price">From $15 / 1,000 words</div></div>
+      <div class="card service-card"><div class="icon">🛍️</div><h3>Product Descriptions</h3><p>Descriptions that sell benefits, not just features.</p><ul><li>Amazon, Shopify &amp; e-commerce ready</li><li>Bulk orders welcome</li></ul><div class="price">From $8 / description</div></div>
+      <div class="card service-card"><div class="icon">🌐</div><h3>Website Copy</h3><p>Homepages, landing pages, About pages &amp; service pages.</p><ul><li>Clear, persuasive, on-brand copy</li><li>CTA-focused structure</li></ul><div class="price">From $40 / page</div></div>
+      <div class="card service-card"><div class="icon">🧹</div><h3>Editing &amp; Proofreading</h3><p>Polish your draft until it reads professionally.</p><ul><li>Grammar, flow, clarity &amp; formatting</li><li>Track-changes style feedback</li></ul><div class="price">From $15 / 1,000 words</div></div>
+      <div class="card service-card"><div class="icon">♻️</div><h3>Rewriting &amp; Paraphrasing</h3><p>Turn rough or flagged text into original, natural writing.</p><ul><li>Meaning preserved, wording fully fresh</li><li>Plagiarism check included</li></ul><div class="price">From $20 / 1,000 words</div></div>
+      <div class="card service-card" style="background:var(--teal-dark);color:white;border:none"><div class="icon" style="background:rgba(255,255,255,.15)">⭐</div><h3>Not sure what you need?</h3><p style="color:rgba(255,255,255,.85)">Send me your topic or brief — I'll honestly tell you the best format, length and package for your goal before you pay anything.</p><a class="btn btn-amber" href="#order" style="margin-top:16px">Get Free Advice →</a></div>
+    </div>
+    <p style="color:var(--muted);font-size:14.5px;margin:16px 0 0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px"><strong style="color:var(--ink)">A clear line on academic work:</strong> Thesis and dissertation help is offered as professional research support — literature review help, source research, methodology support, editing, referencing and formatting — so the research stays yours, properly sourced and within your institution's rules. Every piece is written from scratch for your project, checked for plagiarism before delivery, and never resold or reused for another client.</p>
+  </section>
+
+  <!-- THESIS & DISSERTATION SUPPORT -->
+  <section id="thesis" style="padding-top:10px">
+    <div class="sec-head"><div class="sec-label">Thesis &amp; dissertation support</div><h2>Yes — I help clients build a professional thesis, chapter by chapter</h2><p>From a rough topic idea to a polished, submission-ready document: original research support at every stage, written from scratch for your project only — <strong style="color:var(--ink)">100% unique, plagiarism-free and copyright-free</strong>, with a plagiarism report on Professional and Premium orders. My own background is MSc Zoology and B.Ed, and I support theses across nursing, business, psychology, education, zoology / life sciences and social sciences.</p></div>
+    <div class="grid3">
+      <div class="card service-card"><div class="icon">🧭</div><h3>1 — Proposal &amp; Literature Review</h3><p>Start your thesis the right way — a focused question and a literature base your supervisor respects.</p><ul><li>Topic refinement &amp; research questions / objectives</li><li>Proposal drafting support (background, rationale, scope)</li><li>Structured literature review with themed sections</li><li>Peer-reviewed sources, properly cited (APA 7th etc.)</li></ul><div class="price">Professional — $55 / 1,000 words</div></div>
+      <div class="card service-card"><div class="icon">🔬</div><h3>2 — Methodology &amp; Analysis Support</h3><p>The chapter examiners scrutinise most — made clear, consistent and defensible.</p><ul><li>Research design, population &amp; sampling write-up support</li><li>Instruments, data-collection &amp; ethical-considerations sections</li><li>Results presentation help — tables, figures &amp; clear narration</li><li>Discussion editing: findings linked back to the literature</li></ul><div class="price">Professional — $55 / 1,000 words</div></div>
+      <div class="card service-card"><div class="icon">🎓</div><h3>3 — Editing, Referencing &amp; Final Polish</h3><p>A complete final pass so the document reads as one professional thesis.</p><ul><li>Full-chapter editing: flow, coherence &amp; academic tone</li><li>Complete referencing check — in-text vs. reference list</li><li>University formatting: title page, TOC, headings, pagination</li><li>Abstract, conclusion &amp; recommendations polish</li></ul><div class="price">Premium support — $79 / 1,000 words</div></div>
+    </div>
+    <div class="card" style="padding:24px;margin-top:16px">
+      <div class="grid2" style="gap:24px">
+        <div>
+          <h3 style="margin:0 0 10px;font-family:Fraunces,serif;font-size:23px">What a full thesis support order includes</h3>
+          <ul class="checklist">
+            <li><span class="check">✓</span> Chapter-by-chapter support — you review and approve each chapter before we move on</li>
+            <li><span class="check">✓</span> Written from scratch for your topic only — never copied, never spun, never resold</li>
+            <li><span class="check">✓</span> Plagiarism-checked before delivery (full report file on Professional &amp; Premium)</li>
+            <li><span class="check">✓</span> APA 7th referencing as standard — MLA, Harvard, Chicago &amp; Vancouver on request</li>
+            <li><span class="check">✓</span> Formatted DOCX delivery: title page, abstract, TOC, chapters, references</li>
+            <li><span class="check">✓</span> 2 free revisions per chapter against your original brief / supervisor feedback</li>
+          </ul>
+        </div>
+        <div style="background:var(--surface2);border-radius:14px;padding:22px">
+          <div style="font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)">Full thesis — guide pricing</div>
+          <p style="color:var(--muted);font-size:14.5px;margin:8px 0 0">A typical undergraduate / master's thesis runs <strong style="color:var(--ink)">10,000–15,000 words</strong>. At the Professional rate that is quoted chapter-by-chapter before we start — no surprise total. Shorter projects (mini-thesis, research project, final-year project of 5,000–8,000 words) are quoted the same transparent way. Timeline is agreed in writing per chapter at the standard <strong style="color:var(--ink)">48–72 hours per 1,000 words</strong>.</p>
+          <p style="color:var(--muted);font-size:14.5px;margin:10px 0 0"><strong style="color:var(--ink)">Not sure where to start?</strong> Send just your topic (or even your subject area) — I'll reply with a free chapter outline and an exact quote.</p>
+          <a class="btn btn-primary" style="width:100%;margin-top:16px" href="#order" data-svc="Thesis &amp; Dissertation Research Support">Start My Thesis Order →</a>
+          <a class="btn btn-outline" style="width:100%;margin-top:10px" href="#full-articles">Read the demo thesis first ↓</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO EDITING & THUMBNAILS -->
+  <section id="creative">
+    <div class="sec-head"><div class="sec-label">Video editing &amp; thumbnails</div><h2>For creators: edits that hold attention, thumbnails that earn the click</h2><p>Short-form is a retention game and YouTube is a click game. I edit the way the platforms reward — strong hook in the first seconds, no dead air, captions that keep silent scrollers watching — and design thumbnails that read clearly on a phone screen.</p></div>
+    <div class="grid3">
+      <div class="card service-card"><div class="icon">🎬</div><h3>Shorts / Reels / TikTok Editing</h3><p>Vertical edits paced for watch-time, not just trimmed clips.</p><ul><li>3–4 second hook cut + fast pacing</li><li>Captions / subtitles burned in</li><li>Music, SFX &amp; beat-synced cuts</li><li>9:16, ready to post</li></ul><div class="price">From $12 / video • bundles from $39</div></div>
+      <div class="card service-card"><div class="icon">▶️</div><h3>YouTube Video Editing</h3><p>Long-form edits that keep viewers watching past the first minute.</p><ul><li>Jump cuts, B-roll &amp; zoom emphasis</li><li>Intro/outro, chapters &amp; end-screen setup</li><li>Captions and on-screen text</li><li>Up to 15 min standard — longer on request</li></ul><div class="price">From $25 / video</div></div>
+      <div class="card service-card"><div class="icon">🖼️</div><h3>YouTube Thumbnail Design</h3><p>Thumbnails built around one rule: readable and irresistible on mobile.</p><ul><li>Big bold text (3–4 words max)</li><li>High-contrast colours &amp; expressive focal image</li><li>2 text/layout variations included</li><li>1280×720 PNG, ready to upload</li></ul><div class="price">From $7 / thumbnail • 5-pack $29</div></div>
+      <div class="card service-card"><div class="icon">🎮</div><h3>Gaming Edits</h3><p>Free Fire, PUBG Mobile &amp; battle-royale gameplay edits.</p><ul><li>Kill-montages &amp; clutch-moment cuts</li><li>Beat drops synced to action</li><li>Trending-format hooks</li></ul><div class="price">From $12 / video</div></div>
+      <div class="card service-card"><div class="icon">📝</div><h3>Scripts &amp; Captions for Creators</h3><p>The words behind the video — hooks, scripts, captions, hashtags.</p><ul><li>Short-form scripts with a scroll-stopping first line</li><li>Caption + hashtag pack for TikTok / Reels / Shorts</li><li>Titles checked against the thumbnail</li></ul><div class="price">From $10 / script</div></div>
+      <div class="card service-card" style="background:var(--teal-dark);color:white;border:none"><div class="icon" style="background:rgba(255,255,255,.15)">🔥</div><h3>Creator Starter Bundle</h3><p style="color:rgba(255,255,255,.85)">1 edited Short + its thumbnail + caption &amp; hashtag pack — everything one video needs to go live properly.</p><div class="price" style="color:#FDE68A">$19 complete • 48h delivery</div><a class="btn btn-amber" href="#order" data-svc="Creator Bundle — Short + Thumbnail + Captions" style="margin-top:14px">Get the Bundle →</a></div>
+    </div>
+    <div class="creative-note"><span>✓ Send raw footage via Drive / WeTransfer link</span><span>✓ English captions — other languages on request</span><span>✓ 2 free revisions on every edit</span><span>✓ Your footage stays private — never reused</span></div>
+  </section>
+
+  <!-- WEB DEVELOPMENT -->
+  <section id="webdev">
+    <div class="sec-head"><div class="sec-label">Web development — my hands-on work</div><h2>Websites that load fast, look sharp and are built to rank</h2><p>Web development is a core part of my actual, hands-on work: I design, build and maintain live websites — tool sites, directories and business pages that are mobile-first, SEO-ready and quick on any connection. And because I also write the content, you get one person for your whole online presence: the site, the words, the video and the thumbnails. Don't take my word for it — ask in your brief and I'll send my current live website links so you can open and check the work yourself before ordering.</p></div>
+    <div class="grid3">
+      <div class="card service-card"><div class="icon">🧲</div><h3>Landing Page</h3><p>One page built for one job — leads, sales or sign-ups.</p><ul><li>Hero + offer + proof + call-to-action structure</li><li>Copy written for you — no lorem ipsum</li><li>Contact form or WhatsApp lead capture</li></ul><div class="price">From $45 • live in 48–72 hours</div></div>
+      <div class="card service-card"><div class="icon">💻</div><h3>Business Website</h3><p>A complete online home for your business or personal brand.</p><ul><li>Up to 5 pages — home, services, about, contact &amp; more</li><li>Mobile-first design that loads in a blink</li><li>SEO basics built in: titles, headings, meta descriptions</li></ul><div class="price">From $95 • live in 5–7 days</div></div>
+      <div class="card service-card"><div class="icon">🛠️</div><h3>Custom Tool / Web App</h3><p>Interactive tools that bring traffic — and bring visitors back.</p><ul><li>Calculators, generators, directories, quizzes &amp; more</li><li>Runs in the browser — no monthly server bill</li><li>Structured so Google can find and rank it</li></ul><div class="price">From $180 • scope agreed before we start</div></div>
+      <div class="card service-card"><div class="icon">⚡</div><h3>Speed &amp; Mobile Fixes</h3><p>Already have a site that's slow, broken or ugly on phones?</p><ul><li>Speed &amp; layout audit with an honest report</li><li>Mobile layout and readability fixes</li><li>Dead links, images &amp; forms repaired</li></ul><div class="price">Quoted after a free look at your site</div></div>
+      <div class="card service-card"><div class="icon">🔍</div><h3>SEO Setup</h3><p>The foundations Google needs before it can rank you.</p><ul><li>Page titles, meta descriptions &amp; heading structure</li><li>Sitemap + Search Console submission guidance</li><li>Internal linking that makes sense</li></ul><div class="price">Included free with every website build</div></div>
+      <div class="card service-card" style="background:var(--teal-dark);color:white;border:none"><div class="icon" style="background:rgba(255,255,255,.15)">🌐</div><h3>Website + Content Launch Pack</h3><p style="color:rgba(255,255,255,.85)">A business website plus a launch blog article and social thumbnails — everything you need to go live and get seen in one order.</p><div class="price" style="color:#FDE68A">From $129 complete</div><a class="btn btn-amber" href="#order" data-svc="Website + Content Launch Pack" style="margin-top:14px">Get the Launch Pack →</a></div>
+    </div>
+    <div class="creative-note"><span>✓ You own the site 100% — your domain, your files</span><span>✓ Works on every phone, tablet &amp; computer</span><span>✓ Hosting &amp; domain setup guidance included</span><span>✓ 2 free revisions on design &amp; text</span></div>
+  </section>
+
+  <!-- NICHES -->
+  <section style="padding-top:10px">
+    <div class="sec-head"><div class="sec-label">Subjects &amp; niches</div><h2>High-demand topics I write in</h2><p>Strongest demand right now is in health, business and finance — and these are exactly where well-researched writing earns the most. Don't see your subject? Ask — I research new topics properly before accepting.</p></div>
+    <div class="niches">
+      <span class="chip hot">Nursing &amp; Healthcare</span><span class="chip hot">Business &amp; Management</span><span class="chip hot">Personal Finance</span><span class="chip hot">Psychology</span><span class="chip hot">Zoology &amp; Life Sciences — Thesis</span><span class="chip hot">Thesis &amp; Dissertation Topics</span><span class="chip">SaaS &amp; Technology</span><span class="chip">AI &amp; Future Tech</span><span class="chip">Legal Studies</span><span class="chip">Education</span><span class="chip">Marketing &amp; SEO</span><span class="chip">E-commerce</span><span class="chip">Health &amp; Wellness</span><span class="chip">Lifestyle &amp; Travel</span><span class="chip">History &amp; Sociology</span><span class="chip">Cryptocurrency</span><span class="chip">Real Estate</span><span class="chip">Food &amp; Nutrition</span>
+    </div>
+  </section>
+
+  <!-- SAMPLES -->
+  <section id="samples">
+    <div class="sec-head"><div class="sec-label">Portfolio samples</div><h2>Read the work. That's the real pitch.</h2><p>Short excerpts from demonstration samples written to show style across niches — and directly below them, two complete articles published in full, with headings, references and conclusions, so you can judge the finished quality before spending anything.</p></div>
+    <div class="filters" role="tablist">
+      <button class="filter-btn active" data-filter="all">All Samples</button>
+      <button class="filter-btn" data-filter="seo">Blog &amp; SEO</button>
+      <button class="filter-btn" data-filter="academic">Academic</button>
+      <button class="filter-btn" data-filter="business">Business &amp; Finance</button>
+      <button class="filter-btn" data-filter="copy">Copy &amp; Scripts</button>
+    </div>
+    <div class="grid2" id="sampleGrid">
+      <article class="card sample" data-cat="business seo"><div class="meta"><span>Personal Finance • SEO Blog</span><span>Sample</span></div><h3>How to Build an Emergency Fund on a Small Salary (Without Feeling Broke)</h3><p>"Most financial advice assumes you have money left over. You don't — and that's exactly why the usual 'save six months of expenses' rule fails. Start smaller and smarter: your first goal is not six months. It's $500, in a separate account, within 60 days. Here's the system that actually works on a tight income…"</p><footer><span>≈1,400 words</span><span>Full article below ↓ • Finance</span></footer></article>
+      <article class="card sample" data-cat="academic"><div class="meta"><span>Nursing • Literature Review</span><span>APA 7th</span></div><h3>The Role of Preventive Care in Reducing Hospital Readmissions</h3><p>"Hospital readmissions within 30 days remain one of the most persistent quality challenges in modern healthcare. This paper examines evidence from discharge-planning and community follow-up studies to argue that structured preventive care — not additional treatment — is the most cost-effective intervention available to nursing practice…"</p><footer><span>≈1,300 words</span><span>7 sources • Full article below ↓</span></footer></article>
+      <article class="card sample" data-cat="business seo"><div class="meta"><span>SaaS • Business Blog</span><span>Sample</span></div><h3>Why Small Businesses Are Quietly Switching to Automation in 2026</h3><p>"The owner of a 12-person logistics firm in Manchester didn't hire an operations manager last year. She automated invoicing, follow-ups and stock alerts instead — and saved the equivalent of a full salary. Her story is no longer unusual. Automation has crossed the line from 'enterprise luxury' to 'small business survival tool'…"</p><footer><span>1,620 words</span><span>7 min read • SaaS</span></footer></article>
+      <article class="card sample" data-cat="academic"><div class="meta"><span>Psychology • Essay</span><span>Sample</span></div><h3>Does Cognitive Behavioural Therapy Work Better Than Medication for Anxiety?</h3><p>"Anxiety disorders affect an estimated 301 million people worldwide, yet the first-line response is still, too often, a prescription pad. This essay compares the long-term evidence for CBT against pharmacological treatment — and finds the answer is more nuanced, and more hopeful, than either camp admits…"</p><footer><span>1,980 words</span><span>9 sources • Psychology</span></footer></article>
+      <article class="card sample" data-cat="seo"><div class="meta"><span>Technology • SEO Article</span><span>Sample</span></div><h3>AI in Everyday Life: 9 Tools You're Already Using Without Noticing</h3><p>"You asked your phone for the weather this morning. A machine-learning model answered. Your email filtered out 14 spam messages before breakfast — AI again. Artificial intelligence didn't arrive with a dramatic announcement; it slipped into daily life one helpful feature at a time. Here are nine of them, explained plainly…"</p><footer><span>1,450 words</span><span>6 min read • Technology</span></footer></article>
+      <article class="card sample" data-cat="academic business"><div class="meta"><span>Business • Case Study</span><span>Sample</span></div><h3>How Remote Work Changed Employee Motivation: A Post-Pandemic Analysis</h3><p>"Five years after remote work became the default for millions, the debate has shifted from 'does it work?' to 'what does it do to people?' Drawing on recent organisational-behaviour research, this analysis explores autonomy, isolation and the surprising factor that predicts motivation better than salary…"</p><footer><span>2,100 words</span><span>11 sources • Business</span></footer></article>
+      <article class="card sample" data-cat="academic"><div class="meta"><span>Zoology • Thesis Sample</span><span>APA 7th</span></div><h3>Demo Thesis: Urban Noise Pollution and the Breeding Behaviour of House Sparrows</h3><p>"This thesis examines whether chronic urban noise changes when — and how successfully — house sparrows breed. Across paired noisy and quiet sites, dawn song started later, clutches were smaller and fledging success was lower where traffic noise was highest…" A complete miniature thesis — title page, abstract, five chapters and APA references — published in full below so you can judge thesis quality before ordering.</p><footer><span>Mini-thesis • 5 chapters</span><span>Full demo thesis below ↓</span></footer></article>
+      <article class="card sample" data-cat="academic"><div class="meta"><span>Legal Studies • Academic Paper</span><span>Harvard</span></div><h3>Wrongful Dismissal: What Employers Owe Employees Beyond the Contract</h3><p>"A contract can be terminated lawfully and still be terminated unfairly. That distinction — between what an employment contract permits and what fairness requires — sits at the heart of modern dismissal law. This paper traces how tribunals weigh notice, process and proportionality, and why a procedurally flawed dismissal can cost an employer far more than the compensation itself…"</p><footer><span>2,200 words</span><span>10 sources • Legal</span></footer></article>
+      <article class="card sample" data-cat="seo"><div class="meta"><span>Health &amp; Wellness • SEO Article</span><span>Sample</span></div><h3>Cortisol and Sleep: Why Your Stress Hormone Is Keeping You Awake</h3><p>"Cortisol is supposed to fall at night. In stressed adults, it often doesn't — and the result is that familiar 3 a.m. wide-awake feeling no amount of counting sheep fixes. The good news: the research points to a handful of boring, free habits that genuinely move the needle. No supplements, no gadgets — just timing, light, and one counterintuitive evening rule…"</p><footer><span>1,700 words</span><span>7 min read • Health</span></footer></article>
+      <article class="card sample" data-cat="copy business"><div class="meta"><span>E-commerce • Product Copy</span><span>Sample</span></div><h3>Product Description Set: Hand-Poured Soy Candle (Shopify)</h3><p>"Some candles fill a room. This one changes its mood. Hand-poured in small batches from 100% soy wax, our Cedar &amp; Amber candle burns clean for 45 hours — no tunnelling, no soot, no headache-heavy synthetic fragrance. Light it when the day needs a softer ending…" Written to sell the feeling first, then the specs — burn time, wick and care in three scannable lines.</p><footer><span>5 descriptions</span><span>Shopify-ready • E-commerce</span></footer></article>
+      <article class="card sample" data-cat="copy"><div class="meta"><span>Website Copy • Homepage</span><span>Sample</span></div><h3>Homepage Copy for a Family Dental Clinic</h3><p>"Nervous about the dentist? You're our favourite kind of patient. At Brightpath Dental, first visits start with a conversation — not a drill. No lectures, no surprise bills: a clear plan, honest prices, and appointments that start on time…" Homepage copy written around the two things dental patients actually fear — being judged and being overcharged — with every section ending in a low-pressure next step.</p><footer><span>3 pages</span><span>Homepage + Services + About</span></footer></article>
+      <article class="card sample" data-cat="copy"><div class="meta"><span>Creator Script • 60-Second Short</span><span>Sample</span></div><h3>Short-Form Script: "The 3-Second Rule of First Impressions"</h3><p>HOOK (0–3s): "People decide whether they trust you before you finish your first sentence — here's the proof." BEAT 1 (3–15s): the study, in plain words. BEAT 2 (15–40s): what to fix — face, first words, framing. PAYOFF (40–60s): one change to make today. A complete script with on-screen text cues, B-roll notes and a caption + hashtag pack — the same pack delivered with every creator order.</p><footer><span>Script + captions</span><span>60 seconds • Creators</span></footer></article>
+    </div>
+    <p style="color:var(--muted);font-size:14px;margin-top:14px">Note: Samples above are demonstration pieces written for this portfolio. Client work is confidential and is never shared or resold.</p>
+  </section>
+
+  <!-- COMPLETE ARTICLES -->
+  <section id="full-articles" style="padding-top:10px">
+    <div class="sec-head"><div class="sec-label">Complete sample articles &amp; demo thesis</div><h2>Don't judge the excerpt. Read the whole piece.</h2><p>An opening paragraph can't prove research depth, structure or referencing. So here are complete pieces, published in full — headings, in-text citations, reference lists and proper conclusions included — plus a complete demo thesis showing title page, abstract, all five chapters and references. All are <strong style="color:var(--ink)">demonstration samples</strong>: written for this portfolio, not for a client, and labelled as such.</p></div>
+
+    <details class="card full-article">
+      <summary>
+        <div class="meta"><span>Nursing • Literature Review — APA 7th</span><span>Demonstration Sample</span></div>
+        <h3>The Role of Preventive Care in Reducing Hospital Readmissions</h3>
+        <p class="fa-sub">A complete academic literature review: abstract, structured sections, in-text citations, a full APA reference list and a conclusion. ≈1,300 words · 7 sources.</p>
+        <span class="fa-toggle">Read the complete article ↓</span>
+      </summary>
+      <div class="article-body">
+        <span class="demo-tag">Demonstration sample — written for this portfolio to show finished quality. Not client work.</span>
+        <p class="abstract"><strong>Abstract —</strong> Hospital readmission within 30 days of discharge is one of the most closely watched quality indicators in modern healthcare, and in the United States it carries direct financial penalties under the Hospital Readmissions Reduction Program. This paper reviews the published evidence on preventive care as a strategy for reducing readmissions. Drawing on landmark studies of discharge planning, transitional care, patient education and post-discharge follow-up, it argues that most preventable readmissions are not failures of hospital treatment but failures of transition — the handover between hospital, patient and community care. The evidence shows that single interventions have modest effects, while bundled preventive care, led or coordinated by nurses, produces the most consistent reductions. The paper concludes that readmission prevention should be organised as a continuous pathway across the whole care transition rather than as isolated interventions at discharge.</p>
+        <p class="keywords"><strong>Keywords:</strong> preventive care, hospital readmission, transitional care, discharge planning, nursing practice</p>
+
+        <h4>1. Introduction</h4>
+        <p>Every year, millions of patients leave hospital apparently recovered, only to return within weeks — sicker, more anxious, and far more expensive to treat. A return to hospital within 30 days of discharge, known as an unplanned readmission, is rarely just bad luck. In many cases it signals that something in the chain of care broke down: instructions were misunderstood, medication was confused, a follow-up appointment never happened, or early warning signs went unnoticed at home.</p>
+        <p>Preventive care, in this context, means the set of planned actions taken before, during and after discharge to stop a manageable problem from becoming a new admission. This paper examines the scale of the readmission problem, reviews four categories of preventive intervention supported by research, and considers what the evidence means for nursing practice.</p>
+
+        <h4>2. The Scale of the Problem</h4>
+        <p>In their landmark analysis of Medicare fee-for-service data, Jencks, Williams and Coleman (2009) found that 19.6% of beneficiaries — almost one in five — were rehospitalised within 30 days of discharge, and that unplanned rehospitalisations accounted for an estimated $17.4 billion in hospital payments. Readmissions were concentrated in a small group of conditions, including heart failure, pneumonia and chronic obstructive pulmonary disease — conditions whose stability after discharge depends heavily on medication adherence, symptom monitoring and timely follow-up.</p>
+        <p>The scale of these figures led the United States to introduce the Hospital Readmissions Reduction Program, which reduces payments to hospitals with higher-than-expected readmission rates (Centers for Medicare &amp; Medicaid Services, 2024). Yet penalties alone do not prevent readmissions. As Hansen et al. (2011) note in their systematic review, a substantial share of readmissions appears preventable, but only where hospitals invest in the processes that support patients after they leave. The question, therefore, is not whether prevention works, but which preventive activities work best.</p>
+
+        <h4>3. Preventive Care Interventions</h4>
+        <h5>3.1 Structured discharge planning</h5>
+        <p>Discharge planning that begins on admission — rather than in a rush on the final morning — consistently improves outcomes. The Re-Engineered Discharge (Project RED) is the best-known model: it combines a personalised after-hospital care plan, medication reconciliation, arranged follow-up appointments and a post-discharge reinforcing phone call. In a randomised controlled trial, Jack et al. (2009) found that patients receiving the reengineered discharge used significantly less hospital care in the 30 days after discharge than those receiving usual care. The lesson is that discharge is a clinical process, not an administrative event.</p>
+        <h5>3.2 Transitional care</h5>
+        <p>Transitional care extends prevention beyond the hospital door. Coleman's Care Transitions Intervention coaches patients — usually older adults with chronic illness — to manage their medications, maintain a personal health record, recognise warning signs and follow up appropriately. In a randomised trial, the intervention significantly reduced rehospitalisation at 30, 90 and even 180 days (Coleman et al., 2006). Naylor's Transitional Care Model goes further, using advanced practice nurses to coordinate care from hospital into the home, and has repeatedly shown reduced readmissions and costs for high-risk patients (Naylor et al., 2011).</p>
+        <h5>3.3 Patient education and self-management</h5>
+        <p>Education is the intervention most directly owned by nurses. Techniques such as "teach-back" — asking patients to explain their medication schedule and warning signs in their own words — expose misunderstandings before they become emergencies. Education works best when it builds self-management skill rather than simply delivering information: a patient who can weigh themselves daily, interpret a sudden weight gain and know whom to call is practising preventive care every day.</p>
+        <h5>3.4 Timely follow-up and community coordination</h5>
+        <p>Finally, prevention depends on what happens in the first days at home. A follow-up appointment within seven days of discharge, a nurse's telephone check at 48–72 hours, and clear communication with the patient's primary care physician close the gaps in which deterioration goes unnoticed. Community nurses and pharmacists extend this safety net by checking inhaler technique, medication-pack accuracy and home circumstances that no ward round can see.</p>
+
+        <h4>4. Discussion</h4>
+        <p>Read together, the studies point to one conclusion: prevention works best in bundles. Leppin et al. (2014), in a systematic review and meta-analysis of randomised trials, found that interventions with more components — particularly those that supported patient self-management and continued after discharge — were the most effective at preventing 30-day readmissions. Single, discharge-day interventions, by contrast, showed weak or inconsistent effects.</p>
+        <p>For nursing practice, the implication is significant. Nurses are present at every point where prevention succeeds or fails: they reconcile the medication, teach the patient, make the follow-up call and spot the deteriorating patient first. Readmission prevention is therefore not an add-on to nursing work; it is a description of good nursing work, organised deliberately. The barriers are real — short staffing, short stays and fragmented community services — but they are arguments for protecting the transitional role of nurses, not for abandoning it.</p>
+
+        <h4>5. Conclusion</h4>
+        <p>Hospital readmissions persist not because hospitals treat patients badly, but because recovery continues long after discharge, in homes where support is thin and instructions fade. The evidence reviewed here shows that preventive care — structured discharge planning, nurse-led transitional care, genuine patient education and prompt follow-up — measurably reduces that risk, especially when the elements are combined into one continuous pathway. For health systems facing both penalties and pressure on beds, the investment case is clear; for nurses, the professional case is clearer still. Preventing a readmission is invisible work — nobody counts the admission that never happened — but it is among the most valuable work modern healthcare performs.</p>
+
+        <h4>References</h4>
+        <ul class="refs">
+          <li>Centers for Medicare &amp; Medicaid Services. (2024). <em>Hospital Readmissions Reduction Program (HRRP)</em>. U.S. Department of Health and Human Services.</li>
+          <li>Coleman, E. A., Parry, C., Chalmers, S., &amp; Min, S.-J. (2006). The Care Transitions Intervention: Results of a randomized controlled trial. <em>Archives of Internal Medicine, 166</em>(17), 1822–1828.</li>
+          <li>Hansen, L. O., Young, R. S., Hinami, K., Leung, A., &amp; Williams, M. V. (2011). Interventions to reduce 30-day rehospitalization: A systematic review. <em>Annals of Internal Medicine, 155</em>(8), 520–528.</li>
+          <li>Jack, B. W., Chetty, V. K., Anthony, D., Greenwald, J. L., Sanchez, G. M., Johnson, A. E., … Culpepper, L. (2009). A reengineered hospital discharge program to decrease rehospitalization: A randomized trial. <em>Annals of Internal Medicine, 150</em>(3), 178–187.</li>
+          <li>Jencks, S. F., Williams, M. V., &amp; Coleman, E. A. (2009). Rehospitalizations among patients in the Medicare fee-for-service program. <em>The New England Journal of Medicine, 360</em>(14), 1418–1428.</li>
+          <li>Leppin, A. L., Gionfriddo, M. R., Kessler, M., Brito, J. P., Mair, F. S., Gallacher, K., … Montori, V. M. (2014). Preventing 30-day hospital readmissions: A systematic review and meta-analysis of randomized trials. <em>JAMA Internal Medicine, 174</em>(7), 1095–1107.</li>
+          <li>Naylor, M. D., Aiken, L. H., Kurtzman, E. T., Olds, D. M., &amp; Hirschman, K. B. (2011). The importance of transitional care in achieving health reform. <em>Health Affairs, 30</em>(4), 746–754.</li>
+        </ul>
+        <p style="color:var(--muted);font-size:14px">Need research support like this — literature review, sources, editing, referencing? <a href="#order" data-svc="Research Support — Literature Review &amp; Editing" style="color:var(--amber);font-weight:800">Order the support package →</a></p>
+      </div>
+    </details>
+
+    <details class="card full-article">
+      <summary>
+        <div class="meta"><span>Personal Finance • SEO Blog Article</span><span>Demonstration Sample</span></div>
+        <h3>How to Build an Emergency Fund on a Small Salary (Without Feeling Broke)</h3>
+        <p class="fa-sub">A complete SEO blog article: hook opening, scannable step-by-step sections, real statistics with sources, and a conclusion with a clear action plan. ≈1,400 words.</p>
+        <span class="fa-toggle">Read the complete article ↓</span>
+      </summary>
+      <div class="article-body">
+        <span class="demo-tag">Demonstration sample — written for this portfolio to show finished quality. Not client work.</span>
+        <p>Your car battery dies on a Tuesday. The repair is $180 — not a disaster, exactly, but your bank account says otherwise, so it goes on the credit card, where it will quietly cost you far more by the time interest is done with it. If that scene feels familiar, you are far from alone: according to the Federal Reserve's annual household survey, nearly 4 in 10 American adults would struggle to cover a $400 emergency expense using cash or its equivalent (Board of Governors of the Federal Reserve System, 2024).</p>
+        <p>The standard advice — "save three to six months of expenses" — is not wrong. It's just useless as a first step when your salary is already spoken for. This article takes a different approach: build your emergency fund in stages so small they feel almost silly, using systems instead of willpower. Here is exactly how.</p>
+
+        <h4>Why the Usual Advice Fails on a Small Salary</h4>
+        <p>Most savings advice is written for people with a surplus. It assumes that at the end of the month there is money left over, and the only question is where to put it. On a small salary, there is no "left over" — there is only money that hasn't been assigned yet. Two things follow. First, the goal has to shrink until it fits your real life: a target of $5,000 feels impossible and gets abandoned, while a target of $500 feels reachable and gets finished. Second, saving has to happen first, automatically, before spending starts — because "saving what's left" on a tight budget means saving nothing, forever.</p>
+
+        <h4>Step 1: Shrink the First Goal to $500</h4>
+        <p>Forget three months of expenses for now. Your first emergency fund has one job: absorb the most common small shocks — a car repair, a phone screen, a prescription, a broken appliance — without touching a credit card. For most households, $500 covers the majority of these. It is also a number a small salary can actually reach: $10 a week gets you there in under a year; $20 a week, in about six months. And once you hit $500, you are no longer one bad Tuesday away from debt. That psychological shift matters as much as the money.</p>
+
+        <h4>Step 2: Automate a Small Transfer on Payday</h4>
+        <p>Willpower is an unreliable savings plan; automation is a boring one that works. Set up an automatic transfer — even $10 or $25 — that leaves your main account on payday and lands in a separate savings account. Payday timing is the whole trick: money moved before you see it never feels like money lost. If your employer offers split direct deposit, even better — have the savings portion sent directly to the second account, so it never passes through your spending balance at all. Then treat the transfer like a bill. Rent gets paid whether you feel motivated or not; your future self deserves the same reliability.</p>
+
+        <h4>Step 3: Find the Money in Three Common Leaks</h4>
+        <p>You do not need a second job to fund a $10–$25 weekly transfer. You need to close one or two leaks. These three are where small salaries most often bleed:</p>
+        <ul>
+          <li><strong>Forgotten subscriptions</strong> — streaming, apps and memberships that renew silently. Audit three months of statements; most people find at least one charge for something they no longer use.</li>
+          <li><strong>Convenience food markups</strong> — delivery fees, tips and small "top-up" grocery trips. Cooking two of those meals at home each week typically frees more than the entire weekly transfer.</li>
+          <li><strong>Bank and interest charges</strong> — overdraft fees, minimum-balance fees and credit-card interest on small balances. One avoided overdraft can equal a month of saving.</li>
+        </ul>
+        <p>Pick one leak. Redirect exactly that amount into the automatic transfer. Your lifestyle barely changes; your safety net starts growing.</p>
+
+        <h4>Step 4: Keep the Fund Separate — and Boring</h4>
+        <p>An emergency fund fails if it is easy to spend, so keep it in a separate savings account, ideally one you do not see in your everyday banking app. A high-yield savings account pays meaningful interest while keeping your money insured (in the U.S., by the FDIC up to $250,000) and available within a day or two. What the fund should never be is invested: money you might need next month does not belong in the stock market, crypto, or anything whose value can be down 20% in the exact week your car breaks down. Boring is the point.</p>
+
+        <h4>Step 5: Climb the Ladder — $500, One Month, Three Months</h4>
+        <p>Once $500 feels normal, keep the same automatic transfer running and climb in stages: first one month of essential expenses (rent, utilities, basic food, transport), then two, then three. Each rung changes your life more than the last. One month means a job loss is an inconvenience instead of a catastrophe. Three months means you can make decisions — leaving a bad job, retraining, moving — based on what is right, not on what is desperate. Most people on modest salaries reach the three-month rung through two to four years of unglamorous consistency. That is not slow. That is how financial security actually starts.</p>
+
+        <h4>What Counts as an Emergency (and What Doesn't)</h4>
+        <p>A fund with vague rules leaks. Decide yours in advance:</p>
+        <ul>
+          <li><strong>Real emergencies:</strong> essential car repairs, urgent medical or dental bills, a broken phone you need for work, replacing a dead fridge, covering rent during a sudden income gap.</li>
+          <li><strong>Not emergencies:</strong> sale prices, holidays, gifts, concert tickets, upgrading a phone that still works. Wants are fine — they just get their own separate, smaller savings pot.</li>
+        </ul>
+        <p>And when you do spend the fund, use it without guilt — that is what it is for. Then rebuild it with the same automatic transfer. A fund that gets used and rebuilt five times has done its job perfectly.</p>
+
+        <h4>Conclusion</h4>
+        <p>An emergency fund on a small salary is not built from leftover money, because there is no leftover money. It is built from a small first goal, an automatic transfer you stop noticing, and one or two closed leaks. Start this week: open the separate account today, set a $10 payday transfer, and pick your first leak to close. In 60 days you will have something many adults around you don't — the beginnings of a cushion — and every month after that, a dead car battery on a Tuesday gets a little less frightening. Small salary, yes. Small start, absolutely. But a start is all an emergency fund has ever needed.</p>
+
+        <h4>Sources &amp; Further Reading</h4>
+        <ul class="refs">
+          <li>Board of Governors of the Federal Reserve System. (2024). <em>Economic well-being of U.S. households in 2023</em>. Federal Reserve.</li>
+          <li>Consumer Financial Protection Bureau. (n.d.). <em>Start small. Save up: Building an emergency fund</em>. consumerfinance.gov.</li>
+        </ul>
+        <p style="color:var(--muted);font-size:14px">Want an article like this on your topic? <a href="#order" data-svc="Blog Article" style="color:var(--amber);font-weight:800">Order the same package →</a></p>
+      </div>
+    </details>
+    <details class="card full-article">
+      <summary>
+        <div class="meta"><span>Zoology • Demo Thesis — APA 7th</span><span>Demonstration Sample</span></div>
+        <h3>Demo Thesis: The Impact of Urban Noise Pollution on the Breeding Behaviour of House Sparrows (<em>Passer domesticus</em>) in South Punjab, Pakistan</h3>
+        <p class="fa-sub">A complete miniature thesis written for this portfolio: title page details, abstract, chapter outline, introduction, literature review, methodology, results &amp; discussion and conclusion — with a full APA reference list. Condensed for portfolio reading; a client thesis is delivered at full length (typically 10,000–15,000 words), chapter by chapter.</p>
+        <span class="fa-toggle">Read the complete demo thesis ↓</span>
+      </summary>
+      <div class="article-body">
+        <span class="demo-tag">Demonstration sample — written for this portfolio to show finished thesis quality. Original work, not client work, not submitted anywhere.</span>
+        <div class="abstract">
+          <p style="margin:0 0 8px"><strong>Title page (sample format)</strong></p>
+          <p style="margin:0 0 6px"><strong>Title:</strong> The Impact of Urban Noise Pollution on the Breeding Behaviour of House Sparrows (<em>Passer domesticus</em>) in South Punjab, Pakistan</p>
+          <p style="margin:0 0 6px"><strong>Degree:</strong> Master of Science (MSc) in Zoology — Thesis (demonstration format)</p>
+          <p style="margin:0"><strong>Chapters:</strong> 1 Introduction · 2 Literature Review · 3 Materials &amp; Methods · 4 Results &amp; Discussion · 5 Conclusion &amp; Recommendations · References (APA 7th)</p>
+        </div>
+        <p class="abstract" style="margin-top:14px"><strong>Abstract —</strong> Urban noise is one of the fastest-growing forms of pollution in South Asian cities, yet its effects on common urban birds in Pakistan remain poorly documented. This study investigated whether chronic traffic and market noise is associated with changes in the breeding behaviour of the house sparrow (<em>Passer domesticus</em>), a human-commensal species whose populations have declined in many cities worldwide. Breeding activity was observed across paired high-noise and low-noise sites in South Punjab during one breeding season. Dawn song onset, clutch size, hatching success and fledging success were recorded alongside measured sound levels. Sparrows at high-noise sites began dawn singing significantly later relative to sunrise, laid smaller clutches on average, and fledged fewer young per nest than sparrows at quiet sites. The findings are consistent with international evidence that noise masks communication, elevates stress and shifts breeding timing, and they suggest that even a highly adaptable urban species pays a measurable reproductive cost in noisy environments. The study recommends noise-aware urban green planning and long-term monitoring of urban bird populations in rapidly growing Pakistani cities.</p>
+        <p class="keywords"><strong>Keywords:</strong> urban noise pollution, house sparrow, <em>Passer domesticus</em>, breeding behaviour, dawn chorus, South Punjab, urban ecology</p>
+
+        <h4>Chapter 1 — Introduction</h4>
+        <p>The house sparrow has lived alongside human beings for thousands of years, nesting in roof spaces, market awnings and wall cavities from small towns to megacities. Precisely because it is so familiar, its recent declines — documented in parts of Europe and increasingly suspected in South Asia — should concern us: a species exquisitely adapted to human settlements does not decline without a reason. Candidate explanations include changes in building design, reduced insect food for nestlings, predation, disease and pollution. Among these, noise pollution has attracted growing scientific attention, because sound is the channel on which birds depend for territory defence, mate attraction and parent–offspring communication.</p>
+        <p>In the cities and towns of South Punjab, daily sound levels around markets, bus terminals and main roads routinely reach intensities that, in laboratory and field studies elsewhere, have been shown to mask bird song and alter behaviour. Yet almost no published work has tested whether these conditions are associated with measurable changes in the breeding behaviour of local birds. This thesis addresses that gap with a focused field comparison: do house sparrows breeding in high-noise locations differ from those in quieter locations in the timing of dawn song, clutch size and breeding success?</p>
+        <p>The study is guided by three objectives: (1) to compare dawn song onset between high-noise and low-noise breeding sites; (2) to compare clutch size, hatching success and fledging success between the two site types; and (3) to assess whether measured sound level predicts breeding outcomes after accounting for site differences. Its significance is twofold — scientific, in adding South Asian field evidence to a literature dominated by European and North American studies, and practical, in giving urban planners locally grounded evidence that noise belongs in environmental planning.</p>
+
+        <h4>Chapter 2 — Literature Review</h4>
+        <p>Research on noise and birds accelerated after Slabbekoorn and Peet (2003) demonstrated that urban great tits sing at a higher minimum frequency in noisy territories — a landmark finding published in <em>Nature</em> that showed birds actively adjust their songs to avoid being masked by low-frequency traffic noise. Subsequent work showed that such adjustments carry costs: higher-frequency songs may travel differently, be perceived differently by receivers, or signal differently about singer quality.</p>
+        <p>A second strand of literature links noise to breeding outcomes. Halfwerk et al. (2011) found that traffic noise reduced breeding performance in great tits near busy roads, while Schroeder et al. (2012), studying house sparrows in the United Kingdom, reported that birds in noisier areas provisioned nestlings less effectively, apparently because noise interfered with parent–offspring communication at the nest. Reviews of the field (e.g., Shannon et al., 2016) conclude that chronic noise acts as a stressor across taxa, altering vigilance, hormone levels and reproductive timing. What remains scarce is evidence from rapidly urbanising regions of South Asia, where noise profiles — dominated by horns, generators and market activity — differ from the steady traffic hum of Western study sites. This study positions itself in that gap.</p>
+
+        <h4>Chapter 3 — Materials &amp; Methods</h4>
+        <p><strong>Study design &amp; sites.</strong> A paired comparative design was used. Six breeding sites were selected in and around Jampur, District Rajanpur: three classified as high-noise (near a main road / market area) and three as low-noise (residential / green areas set back from traffic), matched as closely as possible for building type and vegetation. Sound levels were measured with a calibrated sound-level meter at dawn and mid-morning on repeated days, and sites were retained in their category only if their mean levels differed consistently.</p>
+        <p><strong>Behavioural &amp; breeding observations.</strong> During the breeding season, dawn song onset was recorded relative to sunrise for territorial males at each site. Accessible nests were monitored at standardised intervals to record clutch size, hatching success and the number of young fledged, following ethical protocols that minimised disturbance — no nest was handled, and observation was from a distance wherever possible.</p>
+        <p><strong>Data analysis.</strong> Site-level comparisons used non-parametric tests appropriate for small samples, and the relationship between mean sound level and breeding variables was examined with correlation analysis. Results in this demonstration thesis are presented in condensed, illustrative form; in a client project the full dataset, statistical tables and figures are delivered with the chapter.</p>
+
+        <h4>Chapter 4 — Results &amp; Discussion</h4>
+        <p>Three consistent patterns emerged. First, dawn song began later relative to sunrise at high-noise sites, consistent with birds delaying singing until brief quieter windows or being masked at the times they would normally sing — a result that mirrors European findings on noise and dawn chorus timing. Second, average clutch size was modestly smaller at high-noise sites. Third, fledging success — the outcome that matters most for population contribution — was lower at noisy sites, echoing Schroeder et al. (2012), who attributed similar reductions in house sparrows to disrupted communication between parents and nestlings.</p>
+        <p>These associations cannot, on their own, prove that noise caused the differences: food availability, predator presence and micro-habitat also vary between market and residential areas. The honest interpretation — and the one this thesis defends — is that noise is a plausible, evidence-consistent contributor that acts together with other urban pressures. That caution is itself a marker of thesis quality: claims are matched to what the design can actually support, limitations are stated plainly, and each finding is tied back to the literature reviewed in Chapter 2 rather than left floating.</p>
+
+        <h4>Chapter 5 — Conclusion &amp; Recommendations</h4>
+        <p>This study concludes that chronic urban noise is associated with delayed dawn singing, smaller clutches and reduced fledging success in house sparrows breeding in South Punjab, adding South Asian field evidence to an international literature with the same broad conclusion: noise is not a trivial nuisance but an ecological pressure. It recommends (1) incorporating green buffers and quiet zones into urban planning near parks and residential breeding habitat; (2) enforcement of existing horn and loudspeaker regulations in market areas during early-morning hours; and (3) a multi-season monitoring programme so that trends, not single-season snapshots, guide policy. For future researchers, experimental playback studies and physiological measures would strengthen causal inference beyond the correlational design used here.</p>
+
+        <h4>References</h4>
+        <ul class="refs">
+          <li>Halfwerk, W., Holleman, L. J. M., Lessells, C. M., &amp; Slabbekoorn, H. (2011). Negative impact of traffic noise on avian reproductive success. <em>Journal of Applied Ecology, 48</em>(1), 210–219.</li>
+          <li>Schroeder, J., Nakagawa, S., Cleasby, I. R., &amp; Burke, T. (2012). Passerine birds breeding under chronic noise experience reduced fitness. <em>PLoS ONE, 7</em>(7), e39200.</li>
+          <li>Shannon, G., McKenna, M. F., Angeloni, L. M., Crooks, K. R., Fristrup, K. M., Brown, E., … Wittemyer, G. (2016). A synthesis of two decades of research documenting the ecological effects of noise on wildlife. <em>Biological Reviews, 91</em>(4), 982–1004.</li>
+          <li>Slabbekoorn, H., &amp; Peet, M. (2003). Birds sing at a higher pitch in urban noise. <em>Nature, 424</em>, 267.</li>
+        </ul>
+        <p style="color:var(--muted);font-size:14px">Need thesis support like this — proposal, literature review, methodology, editing, referencing &amp; formatting? <a href="#order" data-svc="Thesis &amp; Dissertation Research Support" style="color:var(--amber);font-weight:800">Order thesis support →</a></p>
+      </div>
+    </details>
+    <p style="color:var(--muted);font-size:14px;margin-top:6px">All pieces above are demonstration samples written for this portfolio. Client work is confidential and is never published as a sample.</p>
+  </section>
+
+  <!-- SAMPLE PROJECTS -->
+  <section id="projects" style="padding-top:10px">
+    <div class="sec-head"><div class="sec-label">Sample projects</div><h2>Complete projects, not just paragraphs</h2><p>Excerpts show style — projects show delivery. These sample builds demonstrate exactly what lands in your inbox on a real order: the files, the structure and the extras included. Like one? Order the same package and it's yours, on your topic.</p></div>
+    <div class="grid3">
+      <article class="card project"><div class="meta"><span>Creator Bundle</span><span>48h</span></div><h3>Creator Launch Pack — One Video, Fully Packaged</h3><p>One raw phone clip turned into a publish-ready Short: edited, captioned, thumbnailed and captioned again for the post itself.</p><ul><li><span class="check">✓</span> 45-second hook-first edit, captions burned in</li><li><span class="check">✓</span> 2 thumbnail variations, mobile-checked</li><li><span class="check">✓</span> Caption + 12-hashtag pack</li><li><span class="check">✓</span> 3 title options matched to the thumbnail</li></ul><footer><span class="p-price">$19 complete</span><a href="#order" data-svc="Creator Bundle — Short + Thumbnail + Captions">Order this pack →</a></footer></article>
+      <article class="card project"><div class="meta"><span>Web + Content</span><span>48–72h</span></div><h3>Landing Page + Launch Article for a Local Service Business</h3><p>A one-page website for a cleaning company, plus the SEO blog post that gives the new site something to rank for from week one.</p><ul><li><span class="check">✓</span> Mobile-first page with call &amp; WhatsApp buttons</li><li><span class="check">✓</span> 1,000-word SEO article on a local keyword</li><li><span class="check">✓</span> Meta title &amp; description written</li><li><span class="check">✓</span> Lead-capture form, ready to receive enquiries</li></ul><footer><span class="p-price">From $129 complete</span><a href="#order" data-svc="Website + Content Launch Pack">Order this pack →</a></footer></article>
+      <article class="card project"><div class="meta"><span>Thesis Support</span><span>APA 7th • Demo</span></div><h3>Demo Thesis Package — Zoology (MSc Format)</h3><p>The miniature thesis published in full above, shown as a demonstration of thesis-support delivery: title page, abstract, five structured chapters and a complete APA reference list.</p><ul><li><span class="check">✓</span> Title page, abstract &amp; keywords in university format</li><li><span class="check">✓</span> Introduction, literature review &amp; methodology chapters</li><li><span class="check">✓</span> Results &amp; discussion linked back to the literature</li><li><span class="check">✓</span> Conclusion, recommendations &amp; full APA references</li><li><span class="check">✓</span> Original, plagiarism-checked, formatted DOCX delivery</li></ul><footer><span class="p-price">From $55 / 1,000 words • Premium $79</span><a href="#order" data-svc="Thesis &amp; Dissertation Research Support">Order thesis support →</a></footer></article>
+      <article class="card project"><div class="meta"><span>Academic Support</span><span>APA 7th</span></div><h3>Research Support Package — Nursing Literature Review</h3><p>The preventive-care review published in full above, shown as a demonstration of research-support delivery: sourced, structured, referenced and formatted — the kind of help I give on your own research.</p><ul><li><span class="check">✓</span> Literature review with structured headings &amp; a proper conclusion</li><li><span class="check">✓</span> Peer-reviewed sources, fully referenced (APA 7th)</li><li><span class="check">✓</span> Editing, referencing &amp; formatting polish</li><li><span class="check">✓</span> Plagiarism-checked, formatted DOCX delivery</li></ul><footer><span class="p-price">Professional tier — $55 / 1,000 words</span><a href="#order" data-svc="Research Support — Literature Review &amp; Editing">Order this pack →</a></footer></article>
+    </div>
+    <p style="color:var(--muted);font-size:14px;margin-top:14px">Sample projects are demonstration builds created for this portfolio. Real client projects are confidential and are never displayed.</p>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="sec-head"><div class="sec-label">How it works</div><h2>From brief to publish-ready in 5 clear steps</h2><p>No confusion, no disappearing writer. You always know what happens next.</p></div>
+    <div class="steps">
+      <div class="card step"><div class="step-num">1</div><h4>Send Your Brief</h4><p>Topic, word count, deadline, tone and any sources or guidelines. Use the order form below — it takes 2 minutes.</p></div>
+      <div class="card step"><div class="step-num">2</div><h4>Research &amp; Outline</h4><p>I research the topic, check sources, and plan the structure around your goal and brief.</p></div>
+      <div class="card step"><div class="step-num">3</div><h4>Drafting</h4><p>Full draft written from scratch — human voice, proper citations, SEO structure where needed.</p></div>
+      <div class="card step"><div class="step-num">4</div><h4>Quality Review</h4><p>Plagiarism check, proofreading, formatting and fact-check before anything reaches you.</p></div>
+      <div class="card step"><div class="step-num">5</div><h4>Delivery &amp; Revisions</h4><p>Delivered in DOCX / Google Docs / PDF. 2 free revisions included to make it fit your brief.</p></div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="sec-head"><div class="sec-label">Pricing</div><h2>Clear pricing. No surprises.</h2><p>Marketplace-standard rates for international clients. Final quote is always confirmed before work starts — the price we agree is the price you pay.</p></div>
+    <div class="card" style="padding:20px 22px;margin-bottom:16px"><h3 style="margin:0 0 8px;font-family:Fraunces,serif;font-size:21px">$30 vs $55 — exactly what changes</h3><p style="color:var(--muted);margin:0;font-size:15px"><strong style="color:var(--ink)">Starter — $30 / 1,000 words:</strong> a standard blog or business article. Light research (3–5 sources), clean headings and formatting, plagiarism check included. No keyword mapping, no meta title/description, no formal citation formatting. <strong style="color:var(--ink)">Professional — $55 / 1,000 words:</strong> everything in Starter, plus deep research (8+ credible sources), keyword placement around search intent, meta title &amp; description, APA / MLA / Harvard citations where the piece needs them, and the full plagiarism report file. <strong style="color:var(--ink)">Premium — $79:</strong> Professional plus an in-depth literature-review level of source research (12+ academic sources) and a full bibliography. <strong style="color:var(--ink)">Delivery is the same standard on every tier: 48–72 hours per 1,000 words</strong> — you pay for research depth and extras, not for a different clock.</p></div>
+    <div class="pricing">
+      <div class="card price-card"><h3>Starter</h3><p style="color:var(--muted);margin:6px 0 0">Standard blog &amp; business writing — the simpler tier (no keyword mapping, meta or formal citations)</p><div class="amount">$30 <span>/ 1,000 words</span></div><ul><li>Blog article up to 1,000 words</li><li>Light research (3–5 sources)</li><li>Clean formatting &amp; headings</li><li>Plagiarism check included (report file on Professional &amp; Premium)</li><li>Delivery in 48–72 hours</li><li>2 free revisions</li></ul><a class="btn btn-outline" href="#order" data-pkg="Starter — $30 / 1,000 words">Choose Starter</a></div>
+      <div class="card price-card featured"><span class="badge">Most Popular</span><h3>Professional</h3><p style="color:var(--muted);margin:6px 0 0">SEO articles &amp; research support — Starter plus deep research, keyword work, meta &amp; the full report</p><div class="amount">$55 <span>/ 1,000 words</span></div><ul><li>SEO article / literature review up to 1,000 words</li><li>Deep research (8+ credible sources)</li><li>Keyword optimisation + meta title &amp; description</li><li>APA / MLA / Harvard citations</li><li>Full plagiarism report file included</li><li>Delivery in 48–72 hours</li><li>2 free revisions</li></ul><a class="btn btn-primary" href="#order" data-pkg="Professional — $55 / 1,000 words">Choose Professional</a></div>
+      <div class="card price-card"><h3>Premium Research Support</h3><p style="color:var(--muted);margin:6px 0 0">Literature reviews, research editing &amp; complex topics</p><div class="amount">$79 <span>/ 1,000 words</span></div><ul><li>In-depth literature review &amp; source research</li><li>12+ academic sources, full bibliography</li><li>Editing, referencing &amp; formatting polish</li><li>Delivery in 48–72 hours per 1,000 words, with a progress update</li><li>Full plagiarism report file included</li><li>2 free revisions included</li></ul><a class="btn btn-outline" href="#order" data-pkg="Premium Research Support — $79 / 1,000 words">Choose Premium</a></div>
+    </div>
+
+    <div class="card calc" style="margin-bottom:16px">
+      <h3 style="margin:0 0 6px;font-family:Fraunces,serif;font-size:24px">Editing &amp; thumbnail rates</h3>
+      <p style="color:var(--muted);margin:0 0 14px;font-size:15px">Flat per-video pricing — no hourly surprises. Bundle rates apply automatically when you order 3 or more videos.</p>
+      <div class="grid3" style="gap:12px">
+        <div style="background:var(--surface2);border-radius:12px;padding:16px"><b>Thumbnail Design</b><div class="amount" style="font-size:30px">$7 <span>/ each</span></div><p style="color:var(--muted);font-size:14px;margin:6px 0 0">5-pack $29 • 24h delivery • 2 variations</p></div>
+        <div style="background:var(--surface2);border-radius:12px;padding:16px"><b>Short-Form Edit</b><div class="amount" style="font-size:30px">$12 <span>/ video</span></div><p style="color:var(--muted);font-size:14px;margin:6px 0 0">4-video bundle $39 • captions included</p></div>
+        <div style="background:var(--surface2);border-radius:12px;padding:16px"><b>YouTube Long-Form Edit</b><div class="amount" style="font-size:30px">$25 <span>/ video</span></div><p style="color:var(--muted);font-size:14px;margin:6px 0 0">Up to 15 min • chapters + captions</p></div>
+      </div>
+    </div>
+
+    <div class="card calc" style="margin-bottom:16px">
+      <h3 style="margin:0 0 6px;font-family:Fraunces,serif;font-size:24px">Web development rates</h3>
+      <p style="color:var(--muted);margin:0 0 14px;font-size:15px">One-time build prices — you own the site outright, no monthly lock-in. Every build is mobile-first, fast-loading and SEO-ready.</p>
+      <div class="grid3" style="gap:12px">
+        <div style="background:var(--surface2);border-radius:12px;padding:16px"><b>Landing Page</b><div class="amount" style="font-size:30px">$45 <span>/ page</span></div><p style="color:var(--muted);font-size:14px;margin:6px 0 0">1 page • copy included • 48–72h</p></div>
+        <div style="background:var(--surface2);border-radius:12px;padding:16px"><b>Business Website</b><div class="amount" style="font-size:30px">$95 <span>/ site</span></div><p style="color:var(--muted);font-size:14px;margin:6px 0 0">Up to 5 pages • SEO setup included</p></div>
+        <div style="background:var(--surface2);border-radius:12px;padding:16px"><b>Tool / Web App</b><div class="amount" style="font-size:30px">$180 <span>/ from</span></div><p style="color:var(--muted);font-size:14px;margin:6px 0 0">Custom scope • quote confirmed first</p></div>
+      </div>
+    </div>
+
+    <div class="card calc" style="margin-bottom:16px">
+      <h3 style="margin:0 0 6px;font-family:Fraunces,serif;font-size:24px">Thesis &amp; dissertation support rates</h3>
+      <p style="color:var(--muted);margin:0 0 14px;font-size:15px">Quoted chapter-by-chapter before we start — the total is confirmed in writing, with delivery at 48–72 hours per 1,000 words per chapter. Every thesis order is original, plagiarism-checked and copyright-free.</p>
+      <div class="grid3" style="gap:12px">
+        <div style="background:var(--surface2);border-radius:12px;padding:16px"><b>Thesis Support — Professional</b><div class="amount" style="font-size:30px">$55 <span>/ 1,000 words</span></div><p style="color:var(--muted);font-size:14px;margin:6px 0 0">Proposal, literature review &amp; methodology support • full plagiarism report</p></div>
+        <div style="background:var(--surface2);border-radius:12px;padding:16px"><b>Thesis Support — Premium</b><div class="amount" style="font-size:30px">$79 <span>/ 1,000 words</span></div><p style="color:var(--muted);font-size:14px;margin:6px 0 0">12+ sources • full-chapter editing, referencing &amp; university formatting included</p></div>
+        <div style="background:var(--surface2);border-radius:12px;padding:16px"><b>Full Thesis (10k–15k words)</b><div class="amount" style="font-size:30px">Quoted <span>up front</span></div><p style="color:var(--muted);font-size:14px;margin:6px 0 0">Chapter-by-chapter plan &amp; price agreed before work starts • free chapter outline first</p></div>
+      </div>
+    </div>
+
+    <div class="card calc">
+      <h3 style="margin:0 0 6px;font-family:Fraunces,serif;font-size:24px">Instant price estimator</h3>
+      <p style="color:var(--muted);margin:0 0 18px;font-size:15px">Drag the word count and pick a service — get a ballpark instantly. Final quote confirmed free, before you commit.</p>
+      <div class="calc-grid">
+        <div>
+          <label for="calcService">Service type</label>
+          <select id="calcService"><option value="30">Blog Article (Starter) — $30 / 1k words</option><option value="55">SEO Article (Professional) — $55 / 1k words</option><option value="55" selected>Research Support (Professional) — $55 / 1k words</option><option value="55">Thesis Support (Professional) — $55 / 1k words</option><option value="79">Thesis Support (Premium) — $79 / 1k words</option><option value="79">Premium Research Support — $79 / 1k words</option><option value="15">Editing — $15 / 1k words</option></select>
+          <label for="calcWords" style="margin-top:16px">Word count: <span id="wordsLabel">1500</span> words</label>
+          <input type="range" id="calcWords" min="500" max="15000" step="250" value="1500">
+          <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted)"><span>500</span><span>15,000 (full thesis)</span></div>
+        </div>
+        <div style="background:var(--surface2);border-radius:14px;padding:20px">
+          <div style="font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)">Estimated price</div>
+          <div class="est" id="estPrice">$83</div>
+          <p class="est-note" id="estNote">≈ 1,500 words • Research Support • Est. delivery 2–3 days<br>Bulk &amp; repeat-client discounts available — ask in your brief.</p>
+          <a class="btn btn-primary" href="#order" style="margin-top:8px">Get Exact Free Quote →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMISE -->
+  <section style="padding-top:6px">
+    <div class="promise">
+      <div><h2>My quality promise — in writing</h2><p>If any part of this promise is broken, I will fix it within your included free revisions — and if the work doesn't match your brief, I rewrite the affected section. That's how a new writer earns trust: by guaranteeing the work, not by showing borrowed reviews.</p><a class="btn btn-amber" href="#order">Order With Confidence →</a></div>
+      <ul class="checklist">
+        <li><span class="check">✓</span> Written from scratch for your order only — and checked before delivery</li>
+        <li><span class="check">✓</span> Never resold, never reused, never published elsewhere</li>
+        <li><span class="check">✓</span> Sources cited — you can verify every major claim</li>
+        <li><span class="check">✓</span> Confidential — your brief and identity stay private</li>
+        <li><span class="check">✓</span> If I miss the agreed deadline, you hear it from me first</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="sec-head"><div class="sec-label">FAQ</div><h2>Questions buyers ask before ordering</h2></div>
+    <div class="faq" id="faqBox">
+      <div class="faq-item"><button class="faq-q">Is the writing really plagiarism-free? <span>+</span></button><div class="faq-a">Everything is written from scratch from researched sources — never copied or spun — and I run a plagiarism check before delivery on every order. The full report file is included on Professional and Premium packages; on Starter, the check itself is included and I can share its result on request. Want to see one first? Ask and I'll send a sample report before you order.</div></div>
+      <div class="faq-item"><button class="faq-q">How fast can you deliver? <span>+</span></button><div class="faq-a">One standard applies everywhere on this page: writing is delivered in 48–72 hours per 1,000 words, on every tier — so a 2,000-word order takes roughly 4–6 days. The small fixed-scope starter deals are faster because they're small: a single thumbnail in 24 hours, a single Short edit or the 500-word test article in 48 hours. Tighter deadline? Mention it in your brief — if I can do it well in time, I'll confirm it in writing before you pay; if not, I'll tell you honestly.</div></div>
+      <div class="faq-item"><button class="faq-q">Which citation styles do you support? <span>+</span></button><div class="faq-a">APA (7th), MLA (9th), Harvard, Chicago and Vancouver — including in-text citations and a full reference list. Just name your style in the brief.</div></div>
+      <div class="faq-item"><button class="faq-q">What if I need changes after delivery? <span>+</span></button><div class="faq-a">Every package includes free revisions (2 free revisions on every package) for anything that doesn't match your original brief — tone, structure, missing points, formatting.</div></div>
+      <div class="faq-item"><button class="faq-q">Can you help me with my thesis or dissertation? <span>+</span></button><div class="faq-a">Yes — thesis and dissertation research support is a core service on this page. I help chapter by chapter with topic refinement and proposals, literature review drafting support and source research, methodology chapter support, results &amp; discussion editing, and a final polish covering editing, referencing (APA / MLA / Harvard / Chicago) and full university formatting. Everything is written from scratch for your project, is 100% original, plagiarism-checked (full report on Professional &amp; Premium) and copyright-free — never resold to another client. Read the complete demo thesis above to judge the quality first, then send just your topic for a free chapter outline and exact quote.</div></div>
+      <div class="faq-item"><button class="faq-q">How long does a full thesis take, and what does it cost? <span>+</span></button><div class="faq-a">A typical thesis is 10,000–15,000 words. Pricing is per 1,000 words — $55 Professional or $79 Premium — quoted chapter by chapter in writing before we start, so you approve each stage and its price. Delivery follows the same standard as everything on this page: 48–72 hours per 1,000 words, delivered chapter by chapter for your review. Use the price estimator in Pricing to get an instant ballpark for your word count.</div></div>
+      <div class="faq-item"><button class="faq-q">Will you write my assignment for me? <span>+</span></button><div class="faq-a">For short assessed coursework, what I offer is support on your own work — research, editing, referencing and formatting — rather than a finished assignment to hand in unchanged. For thesis and dissertation projects, use the thesis support service above: chapter-by-chapter research support, model-quality drafting help for your review and revision, and full editing and formatting, so the final submission reflects your research and your supervisor's feedback.</div></div>
+      <div class="faq-item"><button class="faq-q">How do I order on Upwork, Fiverr or Freelancer? <span>+</span></button><div class="faq-a">Use the direct profile links in the order section below — my Freelancer.com profile is freelancer.com/u/bilalahmadwrites, and I'm also on Fiverr and Upwork. Send your brief there so your payment stays protected by the platform's escrow. You can prepare the brief with the form below and paste it straight into the marketplace message.</div></div>
+      <div class="faq-item"><button class="faq-q">Do you write on topics not listed here? <span>+</span></button><div class="faq-a">Usually, yes — I research new subjects properly before accepting. If a topic needs a licensed professional's authority (medical/legal advice), I'll flag that honestly and suggest the right format instead.</div></div>
+      <div class="faq-item"><button class="faq-q">I'm new here — can I start with a very small order? <span>+</span></button><div class="faq-a">That's exactly what the starter deals are for: one thumbnail for $7, one edited Short for $12, or a 500-word test article for $15. Judge the delivered work first — most clients who test small come back with bigger orders.</div></div>
+      <div class="faq-item"><button class="faq-q">How do I send footage for a video edit? <span>+</span></button><div class="faq-a">Upload your raw clips to Google Drive, Dropbox or WeTransfer and paste the link in your brief, along with any must-keep moments, your music choice (or let me pick), and examples of a style you like. I deliver a ready-to-post MP4 in 9:16 for Shorts/Reels/TikTok or 16:9 for YouTube.</div></div>
+      <div class="faq-item"><button class="faq-q">What makes your thumbnails different? <span>+</span></button><div class="faq-a">They're designed phone-first: one clear focal image, 3–4 words of bold text maximum, and high contrast that survives small sizes and dark mode. Every thumbnail order includes 2 text/layout variations so you can pick the stronger one.</div></div>
+      <div class="faq-item"><button class="faq-q">Can I hire you for ongoing weekly or monthly work? <span>+</span></button><div class="faq-a">Yes — ongoing work is where the best value sits. Tell me your monthly volume (for example 4 articles, 8 Shorts edits, or a standing thumbnail pack) in the order form and I'll send back a single bundle quote with a repeat-client discount and fixed delivery days, so your content calendar never waits on hiring again. No long contract — pause or stop any month.</div></div>
+      <div class="faq-item"><button class="faq-q">Can you build my website too? <span>+</span></button><div class="faq-a">Yes — web development is a core part of my hands-on work: I build and maintain live websites, and I can send you my current live links so you can check them before ordering. I build landing pages (from $45, live in 48–72 hours), business websites up to 5 pages (from $95) and custom browser-based tools (from $180). Every site is mobile-first, fast-loading and SEO-ready, and you own it outright — your domain, your files, no monthly lock-in. I also guide you through hosting and domain setup if you're starting from zero.</div></div>
+    </div>
+  </section>
+
+  <!-- ORDER -->
+  <section id="order">
+    <div class="sec-head"><div class="sec-label">Start an order</div><h2>Tell me what you need</h2><p>Writing, an edit, a thumbnail — or a whole website. Fill this in; it builds a clean order brief you can copy and paste into my marketplace inbox. The fastest route is my real Freelancer.com profile — the button under the form takes you straight there, and your payment stays protected by the platform's escrow until you approve the delivered work.</p></div>
+    <div class="order-grid">
+      <div class="card form-card">
+        <div class="row"><div><label>Your name</label><input id="fName" placeholder="e.g. Sarah Johnson"></div><div><label>Service</label><select id="fService"><option>Blog Article</option><option>SEO Article</option><option>Thesis &amp; Dissertation Research Support</option><option>Research Support — Literature Review &amp; Editing</option><option>Essay Editing &amp; Feedback</option><option>Product Descriptions</option><option>Website Copy</option><option>Editing &amp; Proofreading</option><option>Video Editing — Short / Reel / TikTok</option><option>Video Editing — YouTube (long-form)</option><option>Thumbnail Design</option><option>Creator Bundle — Short + Thumbnail + Captions</option><option>Web Development — Landing Page</option><option>Web Development — Business Website</option><option>Web Development — Tool / Web App</option><option>Website + Content Launch Pack</option><option>Scripts &amp; Captions Pack</option></select></div></div>
+        <div style="margin-top:12px"><label>Topic / Title / Video link</label><input id="fTopic" placeholder="e.g. Benefits of preventive care in nursing — your footage link — or the website you want built"></div>
+        <div class="row" style="margin-top:12px"><div><label>Word count</label><select id="fWords"><option>500 words</option><option selected>1,000 words</option><option>1,500 words</option><option>2,000 words</option><option>3,000+ words</option><option>5,000 words (mini-thesis / final-year project)</option><option>10,000 words (thesis — chapter by chapter)</option><option>15,000 words (thesis — chapter by chapter)</option></select></div><div><label>Deadline</label><select id="fDeadline"><option>Standard (48–72 hours per 1,000 words)</option><option>Fast (48 hours — small orders)</option><option>Urgent (24 hours — thumbnail only)</option><option>Flexible</option></select></div></div>
+        <div style="margin-top:12px"><label>Details — tone, keywords, citation style, guidelines</label><textarea id="fDetails" rows="4" placeholder="e.g. Friendly tone, APA 7th, target keyword: 'emergency fund', include 5 sources…"></textarea></div>
+        <button class="btn btn-primary" id="buildBrief" style="width:100%;margin-top:14px">Build My Order Brief ↓</button>
+      </div>
+      <div class="card form-card">
+        <label>Your order brief — copy &amp; send it to me on any marketplace</label>
+        <div class="brief-box" id="briefBox">Your brief will appear here…
+
+1. Fill the form on the left
+2. Tap “Build My Order Brief”
+3. Copy it and paste it into my Upwork / Fiverr / Freelancer inbox
+
+Tip: Add your marketplace username so I can match your message to this brief.</div>
+        <button class="btn btn-amber" id="copyBrief" style="width:100%;margin-top:14px">📋 Copy Brief</button>
+        <p style="color:var(--muted);font-size:14px;margin:12px 0 0">Prefer email? Copy the brief and send it with the subject line <strong>“Order — [Your Topic]”</strong>. I reply with a confirmed price and delivery date before any payment.</p>
+        <a class="btn btn-primary" style="width:100%;margin-top:14px" href="https://www.freelancer.com/u/bilalahmadwrites" target="_blank" rel="noopener">Message Me on Freelancer.com →</a>
+        <p style="color:var(--muted);font-size:14px;margin:10px 0 0">My real profile: <strong style="color:var(--ink)">freelancer.com/u/bilalahmadwrites</strong> — paste your brief into a message there to order with escrow-protected payment.</p>
+        <div class="platforms"><span>Also order safely via escrow on:</span><a href="https://www.fiverr.com/bilalahmadwrite" target="_blank" rel="noopener">Fiverr</a><a href="https://www.upwork.com/freelancers/~01aadc1c0f72ece380" target="_blank" rel="noopener">Upwork</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap"><span>© 2026 Bilal Ahmad. All rights reserved. Owned and operated by Bilal Ahmad.</span><span>Article Writing • SEO Content • Thesis &amp; Dissertation Support • Research Support • Video Editing • Thumbnails • Web Development</span><span>Hire me: <a href="https://www.freelancer.com/u/bilalahmadwrites" target="_blank" rel="noopener" style="color:var(--teal);font-weight:700">Freelancer.com</a> • <a href="https://www.fiverr.com/bilalahmadwrite" target="_blank" rel="noopener" style="color:var(--teal);font-weight:700">Fiverr</a> • <a href="https://www.upwork.com/freelancers/~01aadc1c0f72ece380" target="_blank" rel="noopener" style="color:var(--teal);font-weight:700">Upwork</a></span></div></footer>
+<div class="toast" id="toast">Copied! Paste it in my marketplace inbox ✓</div>
+
+<script>
+// Sample filter
+document.querySelectorAll('.filter-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active')});
+    btn.classList.add('active');
+    var f=btn.getAttribute('data-filter');
+    document.querySelectorAll('#sampleGrid .sample').forEach(function(card){
+      var cats=card.getAttribute('data-cat')||'';
+      card.style.display=(f==='all'||cats.indexOf(f)>-1)?'flex':'none';
+    });
+  });
+});
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(function(item){
+  item.querySelector('.faq-q').addEventListener('click',function(){
+    var open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open'); i.querySelector('.faq-q span').textContent='+';});
+    if(!open){ item.classList.add('open'); item.querySelector('.faq-q span').textContent='−'; }
+  });
+});
+// Pricing: package buttons prefill service wording via brief topic note
+document.querySelectorAll('[data-pkg]').forEach(function(a){
+  a.addEventListener('click',function(){
+    var pkg=a.getAttribute('data-pkg');
+    var d=document.getElementById('fDetails');
+    if(d && d.value.indexOf(pkg)===-1){ d.value=('Package: '+pkg+'. '+(d.value||'')).trim(); }
+  });
+});
+// Starter deals & bundles: preselect the matching service in the order form
+document.querySelectorAll('[data-svc]').forEach(function(a){
+  a.addEventListener('click',function(){
+    var svc=a.getAttribute('data-svc');
+    var sel=document.getElementById('fService');
+    if(!sel) return;
+    for(var i=0;i<sel.options.length;i++){ if(sel.options[i].text===svc){ sel.selectedIndex=i; break; } }
+  });
+});
+// Calculator
+var calcService=document.getElementById('calcService'), calcWords=document.getElementById('calcWords'), wordsLabel=document.getElementById('wordsLabel'), estPrice=document.getElementById('estPrice'), estNote=document.getElementById('estNote');
+function updateCalc(){
+  var rate=parseFloat(calcService.value), words=parseInt(calcWords.value,10);
+  wordsLabel.textContent=words.toLocaleString();
+  var price=Math.round(rate*words/1000);
+  estPrice.textContent='$'+price;
+  var label=calcService.options[calcService.selectedIndex].text.split('—')[0].trim();
+  var days= words<=1000?'48–72 hours': words<=2500?'3–5 days': words<=5000?'5–10 days (chapter by chapter)':'chapter-by-chapter plan agreed up front (48–72h per 1,000 words)';
+  estNote.innerHTML='≈ '+words.toLocaleString()+' words • '+label+' • Est. delivery '+days+'<br>Bulk &amp; repeat-client discounts available — ask in your brief.';
+}
+calcService.addEventListener('change',updateCalc); calcWords.addEventListener('input',updateCalc); updateCalc();
+// Order brief builder
+function showToast(msg){ var t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(function(){t.classList.remove('show')},2600); }
+document.getElementById('buildBrief').addEventListener('click',function(){
+  var name=document.getElementById('fName').value.trim()||'(your name)';
+  var svc=document.getElementById('fService').value;
+  var topic=document.getElementById('fTopic').value.trim()||'(topic to be discussed)';
+  var words=document.getElementById('fWords').value;
+  var dl=document.getElementById('fDeadline').value;
+  var det=document.getElementById('fDetails').value.trim()||'—';
+  var brief='ORDER BRIEF — for Bilal Ahmad\n--------------------------------\nName: '+name+'\nService: '+svc+'\nTopic / Title: '+topic+'\nWord count: '+words+'\nDeadline: '+dl+'\nDetails: '+det+'\n\nPlease confirm total price and delivery date. Thank you!';
+  document.getElementById('briefBox').textContent=brief;
+  showToast('Brief ready — copy it below ✓');
+  document.getElementById('briefBox').scrollIntoView({behavior:'smooth',block:'center'});
+});
+document.getElementById('copyBrief').addEventListener('click',function(){
+  var text=document.getElementById('briefBox').textContent;
+  if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(function(){showToast('Copied! Paste it in my marketplace inbox ✓')}).catch(function(){showToast('Select the brief text and copy manually')}); }
+  else{ showToast('Select the brief text and copy manually'); }
+});
+</script>
+<script data-goatcounter="https://bilalsites.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

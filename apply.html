@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="ApplyReady — free photo resizer and PDF maker for job applications. Resize your photo to the exact pixels and KB that online job forms ask for, and turn document photos into one clean PDF. Everything runs in your browser — nothing is uploaded.">
+<link rel="icon" href="data:,">
+<title>ApplyReady — Photo &amp; PDF Maker for Job Applications</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f6f5; --surface:#ffffff; --surface2:#eef2f0; --ink:#12211c; --muted:#51645c;
+  --line:#d9e2dd; --accent:#0c6b58; --accent-ink:#ffffff; --accent-soft:#dff2ec;
+  --warn:#9a5b00; --warn-bg:#fdf3e0; --danger:#b3352c; --radius:14px;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0b100e; --surface:#141c18; --surface2:#1a2520; --ink:#e7efec; --muted:#9db3aa;
+    --line:#27352f; --accent:#2fbf9f; --accent-ink:#06231b; --accent-soft:#173a31;
+    --warn:#f0b35e; --warn-bg:#2b2110; --danger:#ff8a7d;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+button,[role="button"],select,input:not([type="checkbox"]):not([type="radio"]){min-height:2.75rem}
+img{max-width:100%}
+.wrap{max-width:1120px;margin:0 auto;padding:0 18px 64px}
+.mono{font-family:var(--mono)}
+/* hero */
+.hero{padding:38px 0 8px}
+.hero h1{font-size:clamp(30px,5.4vw,46px);line-height:1.08;margin:0 0 12px;font-weight:800;letter-spacing:-.02em}
+.hero h1 .hl{color:var(--accent)}
+.hero p.lede{font-size:clamp(16px,2.4vw,19px);color:var(--muted);max-width:680px;margin:0 0 18px}
+.badges{display:flex;flex-wrap:wrap;gap:8px}
+.badge{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 13px;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:7px}
+.badge svg{width:15px;height:15px;stroke:var(--accent);flex:none}
+/* tabs */
+.tabs{display:flex;gap:8px;margin:26px 0 18px;flex-wrap:wrap}
+.tab{flex:1 1 150px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:12px;padding:12px 14px;font:inherit;font-weight:700;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;min-height:52px}
+.tab svg{width:19px;height:19px;stroke:currentColor}
+.tab[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.panel{display:none}
+.panel.on{display:block}
+/* cards & layout */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+@media(max-width:820px){.grid2{grid-template-columns:1fr}}
+h2.sec{font-size:22px;margin:0 0 6px;font-weight:800;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:0 0 16px;font-size:15px}
+label.flabel{display:block;font-weight:700;font-size:13.5px;margin:18px 0 8px}
+label.flabel:first-child{margin-top:0}
+/* dropzone */
+.drop{display:block;border:2px dashed var(--line);border-radius:var(--radius);background:var(--surface2);padding:26px 16px;text-align:center;cursor:pointer;transition:border-color .15s}
+.drop:hover,.drop.over{border-color:var(--accent)}
+.drop svg{width:38px;height:38px;stroke:var(--accent);margin-bottom:8px}
+.drop strong{display:block;font-size:16px}
+.drop span{color:var(--muted);font-size:13.5px}
+.drop input{display:none}
+/* preview */
+.stage{display:flex;flex-direction:column;align-items:center;gap:12px}
+.stage[hidden]{display:none}
+.frame{background:repeating-conic-gradient(var(--surface2) 0 25%,var(--surface) 0 50%) 0 0/22px 22px;border:1px solid var(--line);border-radius:10px;padding:14px;width:100%;display:flex;justify-content:center}
+canvas#pv{max-width:min(100%,330px);height:auto;border-radius:4px;box-shadow:0 4px 18px rgba(0,0,0,.22);touch-action:none;cursor:grab;background:#fff}
+canvas#pv:active{cursor:grabbing}
+.hint{font-size:13px;color:var(--muted);text-align:center;margin:0}
+.outbar{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.chip{background:var(--surface2);border:1px solid var(--line);border-radius:8px;padding:6px 11px;font-size:13px;font-family:var(--mono);font-weight:600}
+.chip.ok{border-color:var(--accent);color:var(--accent)}
+.chip.bad{border-color:var(--danger);color:var(--danger)}
+/* presets */
+.presets{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+@media(max-width:480px){.presets{grid-template-columns:1fr}}
+.preset{display:block;cursor:pointer}
+.preset .box{display:flex;gap:11px;align-items:flex-start;border:1.5px solid var(--line);border-radius:11px;padding:12px 13px;height:100%}
+.preset input{width:20px;height:20px;flex:none;margin:2px 0 0;accent-color:var(--accent);cursor:pointer}
+.preset:has(input:checked) .box{border-color:var(--accent);background:var(--accent-soft)}
+.preset:has(input:focus-visible) .box{outline:2px solid var(--accent);outline-offset:2px}
+.preset b{display:block;font-size:14.5px}
+.preset .spec{font-size:12.5px;color:var(--muted);font-family:var(--mono)}
+.customrow{display:none;gap:9px;margin-top:10px}
+.customrow.on{display:flex}
+.customrow label{flex:1;font-size:12.5px;font-weight:600;color:var(--muted)}
+.customrow input{width:100%;margin-top:4px}
+/* controls */
+input[type="number"],input[type="text"],select{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink)}
+input[type="range"]{width:100%;accent-color:var(--accent);min-height:2.75rem}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg button{border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:9px 15px;font:inherit;font-weight:700;font-size:14px;cursor:pointer;min-height:44px}
+.seg button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.swatches{display:flex;gap:9px}
+.swatch{width:44px;height:44px;border-radius:10px;border:2px solid var(--line);cursor:pointer;padding:0}
+.swatch[aria-pressed="true"]{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:none;border-radius:12px;padding:13px 20px;font:inherit;font-weight:800;font-size:15.5px;cursor:pointer;min-height:52px;text-decoration:none}
+.btn svg{width:19px;height:19px;stroke:currentColor}
+.btn.primary{background:var(--accent);color:var(--accent-ink);width:100%}
+.btn.ghost{background:var(--surface);color:var(--ink);border:1.5px solid var(--line);width:100%}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btnrow{display:grid;gap:10px;margin-top:20px}
+.note{background:var(--warn-bg);color:var(--warn);border-radius:10px;padding:11px 14px;font-size:13.5px;margin-top:14px;display:none}
+.note.on{display:block}
+/* pdf list */
+.pdfitem{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:11px;padding:9px;margin-bottom:9px;background:var(--surface)}
+.pdfitem img{width:52px;height:64px;object-fit:cover;border-radius:6px;background:#fff;border:1px solid var(--line);flex:none}
+.pdfitem .meta{flex:1;min-width:0}
+.pdfitem .meta b{display:block;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pdfitem .meta span{font-size:12.5px;color:var(--muted);font-family:var(--mono)}
+.ibtn{width:44px;height:44px;flex:none;border:1px solid var(--line);background:var(--surface2);color:var(--ink);border-radius:9px;cursor:pointer;font-size:16px;display:inline-flex;align-items:center;justify-content:center}
+.ibtn:hover{border-color:var(--accent)}
+.empty{color:var(--muted);text-align:center;padding:22px 10px;border:1.5px dashed var(--line);border-radius:11px;font-size:14.5px}
+/* table */
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14.5px}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--surface2);font-size:12.5px;letter-spacing:.04em;text-transform:uppercase}
+tr:last-child td{border-bottom:none}
+td.mono,th.mono{font-family:var(--mono);font-size:13.5px}
+@media(max-width:640px){
+  .tblwrap{overflow-x:visible}
+  table{min-width:0}
+  table,tbody,tr,td{display:block;width:100%}
+  thead{display:none}
+  tr{padding:10px 0;border-bottom:1px solid var(--line)}
+  tr:last-child{border-bottom:none}
+  td{border-bottom:none;padding:3px 14px}
+  td:first-child{padding-top:6px}
+  td:last-child{padding-bottom:6px;color:var(--muted)}
+}
+/* checklist */
+.check{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:640px){.check{grid-template-columns:1fr}}
+.check li{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:13px 15px;display:flex;gap:11px;align-items:flex-start;font-size:14.5px}
+.check svg{width:19px;height:19px;stroke:var(--accent);flex:none;margin-top:2px}
+.check b{display:block}
+.check span{color:var(--muted);font-size:13px}
+section.block{margin-top:38px}
+footer{margin-top:52px;border-top:1px solid var(--line);padding-top:20px;color:var(--muted);font-size:13.5px;display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between}
+.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,80px);background:var(--ink);color:var(--bg);padding:12px 20px;border-radius:999px;font-weight:700;font-size:14.5px;transition:transform .25s;z-index:50;max-width:92vw;text-align:center}
+.toast.on{transform:translate(-50%,0)}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.toast{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <h1>Your photo, <span class="hl">exactly the size</span> the job form asks for.</h1>
+    <p class="lede">Online job portals reject photos every day for the wrong pixels or a file that is a few KB too big. ApplyReady resizes and compresses your photo to the exact spec, and turns your document photos into one clean PDF — free, right here in your browser.</p>
+    <div class="badges">
+      <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg> 100% free, no sign-up</span>
+      <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg> Nothing is uploaded — files never leave your device</span>
+      <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 8V5a1 1 0 011-1h3M16 4h3a1 1 0 011 1v3M20 16v3a1 1 0 01-1 1h-3M8 20H5a1 1 0 01-1-1v-3"/></svg> Exact pixels + exact KB</span>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Tools">
+    <button class="tab" role="tab" id="tab-photo" aria-selected="true" aria-controls="panel-photo">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5-9 9"/></svg>
+      Photo Resizer
+    </button>
+    <button class="tab" role="tab" id="tab-pdf" aria-selected="false" aria-controls="panel-pdf">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/></svg>
+      Images to PDF
+    </button>
+    <button class="tab" role="tab" id="tab-guide" aria-selected="false" aria-controls="panel-guide">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20V4H6.5A2.5 2.5 0 004 6.5z"/><path d="M8 8h8M8 12h6"/></svg>
+      Size Guide
+    </button>
+  </nav>
+
+  <!-- ============ PHOTO PANEL ============ -->
+  <section class="panel on" id="panel-photo" role="tabpanel" aria-labelledby="tab-photo">
+    <div class="grid2">
+      <div class="card">
+        <h2 class="sec">1 · Add your photo</h2>
+        <p class="sub">A clear front-facing photo on a plain background works best. Drag it into the frame to position your face.</p>
+        <label class="drop" id="dropPhoto">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M12 16V4m0 0L7 9m5-5l5 5"/><path d="M4 20h16"/></svg>
+          <strong>Tap to choose a photo</strong>
+          <span>JPG or PNG from your phone or computer</span>
+          <input type="file" id="filePhoto" accept="image/*">
+        </label>
+        <div class="stage" id="stage" style="margin-top:18px" hidden>
+          <div class="frame"><canvas id="pv" width="413" height="531"></canvas></div>
+          <p class="hint">Drag the photo to move it · use the zoom slider to fill the frame</p>
+          <div class="outbar">
+            <span class="chip" id="chipDims">— × — px</span>
+            <span class="chip" id="chipSize">≈ — KB</span>
+            <span class="chip" id="chipLimit">limit — KB</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="sec">2 · Pick the size the form wants</h2>
+        <p class="sub">Read the size in the job advertisement or on the upload page, then match it here.</p>
+
+        <span class="flabel" style="margin-top:0">Photo size</span>
+        <div class="presets" id="presets">
+          <label class="preset"><span class="box"><input type="radio" name="preset" value="passport" checked><span><b>Passport photo</b><span class="spec">35 × 45 mm · 413 × 531 px</span></span></span></label>
+          <label class="preset"><span class="box"><input type="radio" name="preset" value="visa"><span><b>US Visa / DV Lottery</b><span class="spec">2 × 2 in · 600 × 600 px</span></span></span></label>
+          <label class="preset"><span class="box"><input type="radio" name="preset" value="ssc"><span><b>SSC / Bank exams (India)</b><span class="spec">200 × 230 px</span></span></span></label>
+          <label class="preset"><span class="box"><input type="radio" name="preset" value="small"><span><b>Small online form</b><span class="spec">150 × 200 px</span></span></span></label>
+          <label class="preset"><span class="box"><input type="radio" name="preset" value="square"><span><b>Square profile</b><span class="spec">300 × 300 px</span></span></span></label>
+          <label class="preset"><span class="box"><input type="radio" name="preset" value="custom"><span><b>Custom size</b><span class="spec">type any width × height</span></span></span></label>
+        </div>
+        <div class="customrow" id="customRow">
+          <label>Width (px)<input type="number" id="cw" min="20" max="2000" value="300"></label>
+          <label>Height (px)<input type="number" id="ch" min="20" max="2000" value="400"></label>
+        </div>
+
+        <span class="flabel">Maximum file size</span>
+        <div class="seg" id="kbSeg" role="group" aria-label="Maximum file size in KB">
+          <button type="button" data-kb="20">20 KB</button>
+          <button type="button" data-kb="50">50 KB</button>
+          <button type="button" data-kb="100" aria-pressed="true">100 KB</button>
+          <button type="button" data-kb="200">200 KB</button>
+          <button type="button" data-kb="0">No limit</button>
+        </div>
+
+        <span class="flabel">Background colour</span>
+        <div class="swatches" id="bgSeg">
+          <button type="button" class="swatch" data-bg="#ffffff" style="background:#ffffff" aria-pressed="true" aria-label="White background"></button>
+          <button type="button" class="swatch" data-bg="#dceefb" style="background:#dceefb" aria-pressed="false" aria-label="Light blue background"></button>
+          <button type="button" class="swatch" data-bg="#eeeeee" style="background:#eeeeee" aria-pressed="false" aria-label="Light grey background"></button>
+        </div>
+
+        <label class="flabel" for="zoom">Zoom</label>
+        <input type="range" id="zoom" min="100" max="350" value="100" step="1">
+
+        <div class="btnrow">
+          <button class="btn primary" id="dlJpg" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 4v12m0 0l-5-5m5 5l5-5"/><path d="M4 20h16"/></svg>
+            Download photo (JPG)
+          </button>
+          <button class="btn ghost" id="dlSheet" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
+            Download 4×6 photo sheet (multiple copies)
+          </button>
+        </div>
+        <p class="note" id="kbNote"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PDF PANEL ============ -->
+  <section class="panel" id="panel-pdf" role="tabpanel" aria-labelledby="tab-pdf">
+    <div class="grid2">
+      <div class="card">
+        <h2 class="sec">1 · Add document photos</h2>
+        <p class="sub">Photograph or scan each document — CNIC, degrees, certificates, your CV pages — and add them in order. Each photo becomes one page.</p>
+        <label class="drop" id="dropPdf">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          <strong>Tap to add images</strong>
+          <span>You can pick several at once · JPG or PNG</span>
+          <input type="file" id="filePdf" accept="image/*" multiple>
+        </label>
+        <div id="pdfList" style="margin-top:16px">
+          <div class="empty" id="pdfEmpty">No pages yet. Add your first document photo above.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="sec">2 · Make the PDF</h2>
+        <p class="sub">One tidy PDF, ready to attach to any application form or email.</p>
+        <label class="flabel" for="pdfName" style="margin-top:0">File name</label>
+        <input type="text" id="pdfName" value="my-documents">
+        <span class="flabel">Page size</span>
+        <div class="seg" id="pageSeg">
+          <button type="button" data-page="a4" aria-pressed="true">A4</button>
+          <button type="button" data-page="letter" aria-pressed="false">Letter</button>
+        </div>
+        <span class="flabel">Page orientation</span>
+        <div class="seg" id="oriSeg">
+          <button type="button" data-ori="auto" aria-pressed="true">Match each photo</button>
+          <button type="button" data-ori="portrait" aria-pressed="false">All portrait</button>
+          <button type="button" data-ori="landscape" aria-pressed="false">All landscape</button>
+        </div>
+        <div class="outbar" style="justify-content:flex-start;margin-top:18px">
+          <span class="chip" id="pdfPages">0 pages</span>
+          <span class="chip" id="pdfSize">PDF ≈ — KB</span>
+        </div>
+        <div class="btnrow">
+          <button class="btn primary" id="dlPdf" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 4v12m0 0l-5-5m5 5l5-5"/><path d="M4 20h16"/></svg>
+            Download PDF
+          </button>
+        </div>
+        <p class="hint" style="text-align:left;margin-top:12px">Tip: portals often cap uploads at 1–2 MB. If your PDF is too big, re-add fewer or smaller photos — phone photos straight from the camera are the usual cause.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GUIDE PANEL ============ -->
+  <section class="panel" id="panel-guide" role="tabpanel" aria-labelledby="tab-guide">
+    <h2 class="sec">Sizes that portals commonly ask for</h2>
+    <p class="sub">Always confirm against the official advertisement or the upload page itself — requirements change. These are the specs applicants meet most often.</p>
+    <div class="tblwrap">
+      <table>
+        <thead><tr><th>Where</th><th>Dimensions</th><th>File size</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td><b>Passport / ID photo</b></td><td class="mono">413 × 531 px (35 × 45 mm)</td><td class="mono">under 200 KB</td><td>Plain white background, face centred, no glasses glare.</td></tr>
+          <tr><td><b>US Visa &amp; DV Lottery</b></td><td class="mono">600 × 600 px (2 × 2 in)</td><td class="mono">max 240 KB</td><td>Square, head between 50–69% of the height, taken in the last 6 months.</td></tr>
+          <tr><td><b>SSC / IBPS / bank exams</b></td><td class="mono">200 × 230 px</td><td class="mono">20 – 50 KB</td><td>Recent colour photo; signature is a separate upload (140 × 60 px).</td></tr>
+          <tr><td><b>General online job forms</b></td><td class="mono">150 × 200 px or 300 × 300 px</td><td class="mono">under 100 KB</td><td>If the form gives a KB limit only, keep the dimensions and use the KB setting in the Photo tool.</td></tr>
+          <tr><td><b>Documents PDF</b></td><td class="mono">A4 pages</td><td class="mono">often max 1 – 2 MB total</td><td>One PDF for all certificates reads far better than five separate photos.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <section class="block">
+      <h2 class="sec">Before you apply — document checklist</h2>
+      <p class="sub">Keep these scanned and ready once, and every application after that takes minutes.</p>
+      <ul class="check">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg><div><b>Passport-size photo</b><span>White background, made to the portal's exact spec</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg><div><b>CNIC / national ID — front &amp; back</b><span>Both sides, corners visible, no flash glare</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg><div><b>Updated CV / résumé</b><span>One or two pages, PDF format, your name in the file name</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg><div><b>Degrees &amp; transcripts</b><span>Latest qualification first, each page straight and readable</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg><div><b>Experience / service certificates</b><span>From every previous employer you list on the form</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg><div><b>Domicile &amp; PRC</b><span>Where the advertisement asks for them (common in government jobs)</span></div></li>
+      </ul>
+    </section>
+  </section>
+
+  <footer>
+    <span>© 2026 Bilal Ahmad. All Rights Reserved.</span>
+    <span>Owned and operated by Bilal Ahmad · ApplyReady</span>
+  </footer>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script data-goatcounter="https://bilalsites.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>
+(function(){
+"use strict";
+var $=function(id){return document.getElementById(id)};
+function toast(msg){var t=$('toast');t.textContent=msg;t.classList.add('on');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('on')},2600)}
+function download(blob,name){var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},800)}
+
+/* ---------- tabs ---------- */
+var tabs=['photo','pdf','guide'];
+tabs.forEach(function(k){
+  $('tab-'+k).addEventListener('click',function(){
+    tabs.forEach(function(j){
+      $('tab-'+j).setAttribute('aria-selected',j===k?'true':'false');
+      $('panel-'+j).classList.toggle('on',j===k);
+    });
+  });
+});
+
+/* ---------- segmented groups ---------- */
+function segWire(id,cb){
+  var box=$(id);
+  box.addEventListener('click',function(e){
+    var b=e.target.closest('button');if(!b)return;
+    box.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed','false')});
+    b.setAttribute('aria-pressed','true');cb(b);
+  });
+}
+
+/* ================= PHOTO TOOL ================= */
+var PRESETS={passport:[413,531],visa:[600,600],ssc:[200,230],small:[150,200],square:[300,300]};
+var P={img:null,W:413,H:531,zoom:1,ox:0,oy:0,kb:100,bg:'#ffffff',blob:null,quality:1};
+var pv=$('pv'),ctx=pv.getContext('2d');
+
+function targetSize(){
+  var v=document.querySelector('input[name="preset"]:checked').value;
+  if(v==='custom'){
+    var w=Math.max(20,Math.min(2000,parseInt($('cw').value,10)||300));
+    var h=Math.max(20,Math.min(2000,parseInt($('ch').value,10)||400));
+    return [w,h];
+  }
+  return PRESETS[v];
+}
+function drawTo(c,W,H){
+  c.width=W;c.height=H;
+  var x=c.getContext('2d');
+  x.fillStyle=P.bg;x.fillRect(0,0,W,H);
+  if(!P.img)return;
+  var base=Math.max(W/P.img.naturalWidth,H/P.img.naturalHeight);
+  var s=base*P.zoom,dw=P.img.naturalWidth*s,dh=P.img.naturalHeight*s;
+  var dx=(W-dw)/2+P.ox*(W/413),dy=(H-dh)/2+P.oy*(H/531);
+  x.imageSmoothingEnabled=true;x.imageSmoothingQuality='high';
+  x.drawImage(P.img,dx,dy,dw,dh);
+}
+var estTimer=null;
+function render(){
+  var s=targetSize();P.W=s[0];P.H=s[1];
+  drawTo(pv,P.W,P.H);
+  $('chipDims').textContent=P.W+' × '+P.H+' px';
+  $('chipLimit').textContent=P.kb>0?('limit '+P.kb+' KB'):'no KB limit';
+  clearTimeout(estTimer);
+  estTimer=setTimeout(estimate,180);
+}
+function encode(q,cb){
+  var c=document.createElement('canvas');drawTo(c,P.W,P.H);
+  c.toBlob(function(b){cb(b,q)},'image/jpeg',q);
+}
+function estimate(){
+  if(!P.img)return;
+  if(P.kb<=0){encode(0.92,function(b){showSize(b,0.92,true)});return}
+  var lo=0.25,hi=0.95,best=null;
+  (function step(n){
+    if(n<=0){showSize(best.blob,best.q,best.blob.size<=P.kb*1024);return}
+    var q=(lo+hi)/2;
+    encode(q,function(b){
+      if(b.size<=P.kb*1024){best={blob:b,q:q};lo=q}else{hi=q}
+      if(hi-lo<0.04){showSize(b.size<=P.kb*1024?b:best?best.blob:b,q,b.size<=P.kb*1024||!!best)}
+      else step(n-1);
+    });
+  })(7);
+}
+function showSize(b,q,ok){
+  P.blob=b;P.quality=q;
+  var kb=Math.max(1,Math.round(b.size/1024));
+  var chip=$('chipSize');
+  chip.textContent='≈ '+kb+' KB · JPG';
+  chip.className='chip '+(ok?'ok':'bad');
+  var note=$('kbNote');
+  if(P.kb>0&&!ok){note.textContent='Even at the lowest quality this photo stays above '+P.kb+' KB — pick a larger KB limit or a smaller size. The download below is the smallest version possible.';note.classList.add('on')}
+  else{note.classList.remove('on')}
+}
+function loadPhoto(file){
+  if(!file||!/^image\//.test(file.type))return;
+  var url=URL.createObjectURL(file);
+  var img=new Image();
+  img.onload=function(){
+    P.img=img;P.zoom=1;P.ox=0;P.oy=0;$('zoom').value=100;
+    $('stage').hidden=false;$('dlJpg').disabled=false;$('dlSheet').disabled=false;
+    render();toast('Photo loaded — drag it into place');
+  };
+  img.onerror=function(){toast('That file could not be read as an image')};
+  img.src=url;
+}
+$('filePhoto').addEventListener('change',function(){loadPhoto(this.files[0]);this.value=''});
+['dragover','dragleave','drop'].forEach(function(ev){
+  $('dropPhoto').addEventListener(ev,function(e){e.preventDefault();this.classList.toggle('over',ev==='dragover');if(ev==='drop')loadPhoto(e.dataTransfer.files[0])});
+});
+document.querySelectorAll('input[name="preset"]').forEach(function(r){
+  r.addEventListener('change',function(){
+    $('customRow').classList.toggle('on',r.value==='custom'&&r.checked);
+    if(P.img)render();else{var s=targetSize();$('chipDims').textContent=s[0]+' × '+s[1]+' px'}
+  });
+});
+$('cw').addEventListener('input',function(){if(P.img)render()});
+$('ch').addEventListener('input',function(){if(P.img)render()});
+segWire('kbSeg',function(b){P.kb=parseInt(b.dataset.kb,10);if(P.img)render();else $('chipLimit').textContent=P.kb>0?('limit '+P.kb+' KB'):'no KB limit'});
+segWire('bgSeg',function(b){P.bg=b.dataset.bg;if(P.img)render()});
+$('zoom').addEventListener('input',function(){P.zoom=this.value/100;if(P.img)render()});
+/* drag to pan */
+var drag=null;
+pv.addEventListener('pointerdown',function(e){if(!P.img)return;drag={x:e.clientX,y:e.clientY,ox:P.ox,oy:P.oy};pv.setPointerCapture(e.pointerId)});
+pv.addEventListener('pointermove',function(e){
+  if(!drag)return;
+  var r=pv.getBoundingClientRect();
+  P.ox=drag.ox+(e.clientX-drag.x)*(413/r.width);
+  P.oy=drag.oy+(e.clientY-drag.y)*(531/r.height);
+  render();
+});
+['pointerup','pointercancel'].forEach(function(ev){pv.addEventListener(ev,function(){drag=null})});
+
+$('dlJpg').addEventListener('click',function(){
+  if(!P.blob)return;
+  download(P.blob,'applyready-photo-'+P.W+'x'+P.H+'.jpg');
+  toast('Photo downloaded — '+P.W+'×'+P.H+' px, '+Math.round(P.blob.size/1024)+' KB');
+});
+$('dlSheet').addEventListener('click',function(){
+  if(!P.img)return;
+  var single=document.createElement('canvas');drawTo(single,P.W,P.H);
+  var SW=1200,SH=1800,gap=24;
+  var cols=Math.max(1,Math.floor((SW+gap)/(P.W+gap)));
+  var rows=Math.max(1,Math.floor((SH+gap)/(P.H+gap)));
+  var sheet=document.createElement('canvas');sheet.width=SW;sheet.height=SH;
+  var x=sheet.getContext('2d');x.fillStyle='#ffffff';x.fillRect(0,0,SW,SH);
+  var totalW=cols*P.W+(cols-1)*gap,totalH=rows*P.H+(rows-1)*gap;
+  var sx=(SW-totalW)/2,sy=(SH-totalH)/2;
+  for(var rI=0;rI<rows;rI++)for(var cI=0;cI<cols;cI++){
+    x.drawImage(single,sx+cI*(P.W+gap),sy+rI*(P.H+gap));
+  }
+  sheet.toBlob(function(b){download(b,'applyready-print-sheet-4x6.jpg');toast((cols*rows)+' copies on one 4×6 sheet — take it to any photo studio')},'image/jpeg',0.95);
+});
+
+/* ================= PDF TOOL ================= */
+var pages=[]; /* {img, name, w, h} */
+var pageSize='a4',oriMode='auto';
+segWire('pageSeg',function(b){pageSize=b.dataset.page});
+segWire('oriSeg',function(b){oriMode=b.dataset.ori});
+
+function fmtKB(n){return n>=1024?(n/1024).toFixed(1)+' MB':Math.max(1,Math.round(n))+' KB'}
+function refreshPdf(){
+  var list=$('pdfList');list.innerHTML='';
+  if(!pages.length){list.innerHTML='<div class="empty">No pages yet. Add your first document photo above.</div>'}
+  pages.forEach(function(p,i){
+    var row=document.createElement('div');row.className='pdfitem';
+    var th=document.createElement('img');th.src=p.url;th.alt='Page '+(i+1)+': '+p.name;
+    var meta=document.createElement('div');meta.className='meta';
+    meta.innerHTML='<b></b><span>Page '+(i+1)+' · '+p.w+' × '+p.h+' px</span>';
+    meta.querySelector('b').textContent=p.name;
+    var up=document.createElement('button');up.className='ibtn';up.type='button';up.setAttribute('aria-label','Move page '+(i+1)+' up');up.textContent='↑';
+    var dn=document.createElement('button');dn.className='ibtn';dn.type='button';dn.setAttribute('aria-label','Move page '+(i+1)+' down');dn.textContent='↓';
+    var rm=document.createElement('button');rm.className='ibtn';rm.type='button';rm.setAttribute('aria-label','Remove page '+(i+1));rm.textContent='✕';
+    up.disabled=i===0;dn.disabled=i===pages.length-1;
+    up.addEventListener('click',function(){var t=pages[i-1];pages[i-1]=pages[i];pages[i]=t;refreshPdf()});
+    dn.addEventListener('click',function(){var t=pages[i+1];pages[i+1]=pages[i];pages[i]=t;refreshPdf()});
+    rm.addEventListener('click',function(){pages.splice(i,1);refreshPdf()});
+    row.appendChild(th);row.appendChild(meta);row.appendChild(up);row.appendChild(dn);row.appendChild(rm);
+    list.appendChild(row);
+  });
+  $('pdfPages').textContent=pages.length+(pages.length===1?' page':' pages');
+  $('dlPdf').disabled=!pages.length;
+  estimatePdf();
+}
+function pageDims(p){
+  var A4=[595.28,841.89],LT=[612,792];
+  var base=pageSize==='a4'?A4:LT;
+  var landscape;
+  if(oriMode==='portrait')landscape=false;
+  else if(oriMode==='landscape')landscape=true;
+  else landscape=p.w>p.h;
+  return landscape?[base[1],base[0]]:[base[0],base[1]];
+}
+function jpegBytes(p,maxDim){
+  return new Promise(function(res){
+    var scale=Math.min(1,maxDim/Math.max(p.w,p.h));
+    var c=document.createElement('canvas');
+    c.width=Math.round(p.w*scale);c.height=Math.round(p.h*scale);
+    var x=c.getContext('2d');x.fillStyle='#ffffff';x.fillRect(0,0,c.width,c.height);
+    x.drawImage(p.img,0,0,c.width,c.height);
+    c.toBlob(function(b){b.arrayBuffer().then(function(ab){res({buf:new Uint8Array(ab),w:c.width,h:c.height})})},'image/jpeg',0.85);
+  });
+}
+function estimatePdf(){
+  if(!pages.length){$('pdfSize').textContent='PDF ≈ — KB';return}
+  Promise.all(pages.map(function(p){return jpegBytes(p,1600)})).then(function(items){
+    var total=0;items.forEach(function(it){total+=it.buf.length});
+    $('pdfSize').textContent='PDF ≈ '+fmtKB(total/1024+8);
+  });
+}
+$('filePdf').addEventListener('change',function(){
+  var files=Array.prototype.slice.call(this.files);this.value='';
+  var done=0;
+  files.forEach(function(f){
+    if(!/^image\//.test(f.type)){done++;return}
+    var url=URL.createObjectURL(f);
+    var img=new Image();
+    img.onload=function(){pages.push({img:img,url:url,name:f.name,w:img.naturalWidth,h:img.naturalHeight});done++;if(done===files.length){refreshPdf();toast(pages.length+' page(s) in your PDF')}};
+    img.onerror=function(){done++;if(done===files.length)refreshPdf()};
+    img.src=url;
+  });
+});
+['dragover','dragleave','drop'].forEach(function(ev){
+  $('dropPdf').addEventListener(ev,function(e){e.preventDefault();this.classList.toggle('over',ev==='dragover');
+    if(ev==='drop'){var dt=new DataTransfer();Array.prototype.forEach.call(e.dataTransfer.files,function(f){dt.items.add(f)});$('filePdf').files=dt.files;$('filePdf').dispatchEvent(new Event('change'))}
+  });
+});
+
+/* minimal PDF writer with embedded JPEGs */
+function buildPdf(items){
+  var enc=new TextEncoder();
+  var parts=[],offset=0;
+  function push(data){var u=typeof data==='string'?enc.encode(data):data;parts.push(u);offset+=u.length;return offset-u.length}
+  var xrefPos=[],nObj=0;
+  function obj(body){nObj++;xrefPos[nObj]=offset;if(typeof body==='string')push(nObj+' 0 obj\n'+body+'\nendobj\n');else{push(nObj+' 0 obj\n');body.forEach(push);push('\nendobj\n')}}
+  push('%PDF-1.4\n');
+  var numPages=items.length;
+  var firstPageObj=3,objsPerPage=3;
+  var kids=[];for(var i=0;i<numPages;i++)kids.push((firstPageObj+i*objsPerPage)+' 0 R');
+  obj('<< /Type /Catalog /Pages 2 0 R >>');
+  obj('<< /Type /Pages /Kids ['+kids.join(' ')+'] /Count '+numPages+' >>');
+  items.forEach(function(it,i){
+    var pageObjNum=firstPageObj+i*objsPerPage,contentObj=pageObjNum+1,imgObj=pageObjNum+2;
+    var dims=it.dims,pw=dims[0],ph=dims[1],margin=36;
+    var iw=pw-2*margin,ih=ph-2*margin;
+    var s=Math.min(iw/it.w,ih/it.h),dw=it.w*s,dh=it.h*s;
+    var dx=(pw-dw)/2,dy=(ph-dh)/2;
+    obj('<< /Type /Page /Parent 2 0 R /MediaBox [0 0 '+pw.toFixed(2)+' '+ph.toFixed(2)+'] /Resources << /XObject << /Im'+i+' '+imgObj+' 0 R >> >> /Contents '+contentObj+' 0 R >>');
+    var stream='q\n'+dw.toFixed(2)+' 0 0 '+dh.toFixed(2)+' '+dx.toFixed(2)+' '+dy.toFixed(2)+' cm\n/Im'+i+' Do\nQ\n';
+    obj(['<< /Length '+stream.length+' >>\nstream\n',stream,'\nendstream']);
+    obj(['<< /Type /XObject /Subtype /Image /Width '+it.w+' /Height '+it.h+' /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length '+it.buf.length+' >>\nstream\n',it.buf,'\nendstream']);
+  });
+  var xrefStart=offset,total=nObj+1;
+  var x='xref\n0 '+total+'\n0000000000 65535 f \n';
+  for(var j=1;j<total;j++){var o=String(xrefPos[j]);while(o.length<10)o='0'+o;x+=o+' 00000 n \n'}
+  push(x);
+  push('trailer\n<< /Size '+total+' /Root 1 0 R >>\nstartxref\n'+xrefStart+'\n%%EOF');
+  return new Blob(parts,{type:'application/pdf'});
+}
+$('dlPdf').addEventListener('click',function(){
+  if(!pages.length)return;
+  var btn=this;btn.disabled=true;btn.textContent='Building PDF…';
+  Promise.all(pages.map(function(p){return jpegBytes(p,2000)})).then(function(items){
+    items.forEach(function(it,i){it.dims=pageDims(pages[i])});
+    var pdf=buildPdf(items);
+    var name=($('pdfName').value||'my-documents').replace(/[^\w\- ]+/g,'').trim()||'my-documents';
+    download(pdf,name+'.pdf');
+    toast('PDF downloaded — '+items.length+' page(s), '+fmtKB(pdf.size/1024));
+  }).catch(function(){toast('Something went wrong building the PDF — try fewer pages')})
+  .then(function(){btn.disabled=false;btn.innerHTML='Download PDF'});
+});
+refreshPdf();
+})();
+</script>
+</body>
+</html>
